@@ -9,6 +9,17 @@ App({
     // 登录
     wx.login({
       success: res => {
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx35974e912b5ddd37&secret=d749ebb07764b7eaea3d11f6e2c06740&js_code=' + res.code + '&grant_type=authorization_code',
+          method:'GET',
+          success: res => {
+            // console.log(res.data.openid)
+            this.globalData.openid = res.data.openid
+          },
+          fail (res) {
+            console.log('fail!')
+          }
+        })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -34,6 +45,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    openid: null
   }
 })
