@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/echarts/echarts",
-    "pages/pie/pie"
+    "pages/pie/pie",
+    "pages/examination/examination"
   ],
   "window": {
     "backgroundTextStyle": "light",

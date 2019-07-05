@@ -1,0 +1,10 @@
+<!--pages/examination/examination.wxml-->
+<view wx:for="{{ question_list }}">
+  {{index + 1}}、{{item.question}}<br/>
+  <radio-group data-index="{{index}}" bindchange="bindchange">
+    <view wx:for="{{answer_list[index]}}">
+      <radio value="{{index}}" checked="{{item.checked}}">{{item.name}}</radio>
+    </view>
+  </radio-group>
+</view>
+<button type="primary" bindtap="countpoints">提交</button>
