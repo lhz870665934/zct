@@ -1,12 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/echarts/echarts"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#eee",
+    "navigationBarBackgroundColor": "#eee",
+    "navigationBarTitleText": "ECharts 图表示例",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap84.json"
 }
