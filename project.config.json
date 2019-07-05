@@ -58,9 +58,9 @@
 					"scene": null
 				},
 				{
-					"id": 1,
-					"name": "line",
-					"pathName": "pages/line/index",
+					"id": -1,
+					"name": "pie",
+					"pathName": "pages/pie/pie",
 					"query": "",
 					"scene": null
 				}
