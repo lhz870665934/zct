@@ -288,7 +288,10 @@ Page({
         }
       ]
     ],
-    point: []
+    point: [],
+    id: 0,
+    pos: 0,
+    back_show: false
   },
 
   countpoints: function (options) {
@@ -305,6 +308,39 @@ Page({
 
   bindchange: function (e) {
     this.data.point[e.currentTarget.dataset.index] = this.data.answer_list[e.currentTarget.dataset.index][e.detail.value].value
+    if (!this.data.back_show) {
+      this.setData({
+        back_show: true
+      })
+    }
+    if (this.data.pos < 13)
+      this.data.pos += 1
+    wx.pageScrollTo({
+      scrollTop: this.data.pos * wx.getSystemInfoSync().windowHeight,
+    })
+    //this.animation.translate(0, wx.getSystemInfoSync().windowHeight).step()
+
+
+    // getCurrentPages().pop();
+    // wx.navigateTo({
+    //   url: './examination?id=' + (this.data.id + 1),
+    // })
+  },
+
+  back: function (e) {
+    if (this.data.pos !== 0)
+    this.data.pos -= 1
+    if (this.data.pos == 0)
+      this.setData({
+        back_show: false
+      })
+    wx.pageScrollTo({
+      scrollTop: this.data.pos * wx.getSystemInfoSync().windowHeight,
+    })
+  },
+
+  donothing: function () {
+
   },
 
   /**
@@ -312,6 +348,9 @@ Page({
    */
   onLoad: function (options) {
     this.data.total_points = 0
+    // this.setData({
+    //   id: parseInt(options.id)
+    // })
   },
 
   /**

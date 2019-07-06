@@ -1,10 +1,22 @@
 <!--pages/examination/examination.wxml-->
-<view wx:for="{{ question_list }}">
-  {{index + 1}}、{{item.question}}<br/>
-  <radio-group data-index="{{index}}" bindchange="bindchange">
-    <view wx:for="{{answer_list[index]}}">
-      <radio value="{{index}}" checked="{{item.checked}}">{{item.name}}</radio>
+<view class="page_container">
+  <button class="back" wx:if="{{ back_show }}"bindtap="back">返回上题</button>
+  <view class="question_container" wx:for="{{ question_list }}" catchtouchmove="donothing">
+    <view>{{index + 1}}、{{item.question}}</view>
+    <radio-group data-index="{{index}}" bindchange="bindchange">
+      <view class="radio_container" wx:for="{{answer_list[index]}}">
+        <radio value="{{index}}" checked="{{item.checked}}"></radio>
+        <view>{{item.name}}</view>
+      </view>
+    </radio-group>
+  </view>
+  <button class="submit" type="primary" bindtap="countpoints">提交</button>
+</view>
+<!-- <view>
+  {{ id + 1 }}、{{ item.question[id] }}<br/>
+  <radio-group data-index="{{ id }}" bindchange="bindchange">
+    <view wx:for="{{ answer_list[id] }}" wx:key="{{ id }}">
+      <radio value="{{ index }}" checked="{{ item.checked }}">{{ item.name }}</radio>
     </view>
   </radio-group>
-</view>
-<button type="primary" bindtap="countpoints">提交</button>
+</view> -->

@@ -16,6 +16,12 @@ Page({
     })
   },
 
+  ToExamination: function () {
+    wx.redirectTo({
+      url: '../examination/examination?id=0',
+    })
+  },
+
   sendOpenid: function () {
     wx.request({
       url: 'http://10.1.253.12:8081/invest/test/login/' + app.globalData.openid,
