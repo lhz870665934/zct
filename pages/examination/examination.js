@@ -291,7 +291,8 @@ Page({
     point: [],
     id: 0,
     pos: 0,
-    back_show: false
+    back_show: false,
+    ani: ""
   },
 
   countpoints: function (options) {
@@ -315,9 +316,17 @@ Page({
     }
     if (this.data.pos < 13)
       this.data.pos += 1
-    wx.pageScrollTo({
-      scrollTop: this.data.pos * wx.getSystemInfoSync().windowHeight,
+    var animation = wx.createAnimation({})
+    animation.translate(-this.data.pos * wx.getSystemInfoSync().windowWidth, 0).step()
+
+    this.setData({
+
+      ani: animation.export()
+
     })
+    // wx.pageScrollTo({
+    //   scrollTop: this.data.pos * wx.getSystemInfoSync().windowHeight,
+    // })
     //this.animation.translate(0, wx.getSystemInfoSync().windowHeight).step()
 
 
@@ -334,9 +343,17 @@ Page({
       this.setData({
         back_show: false
       })
-    wx.pageScrollTo({
-      scrollTop: this.data.pos * wx.getSystemInfoSync().windowHeight,
+    var animation = wx.createAnimation({})
+    animation.translate(-this.data.pos * wx.getSystemInfoSync().windowWidth, 0).step()
+
+    this.setData({
+
+      ani: animation.export()
+
     })
+    // wx.pageScrollTo({
+    //   scrollTop: this.data.pos * wx.getSystemInfoSync().windowHeight,
+    // })
   },
 
   donothing: function () {
