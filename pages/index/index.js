@@ -2,6 +2,9 @@
 //获取应用实例
 const app = getApp()
 
+var sliderWidth = 95; // 需要设置slider的宽度，用于计算中间位置
+var varbarWidth = 352.5;
+
 Page({
   data: {
     motto: '欢迎使用智存投！',
@@ -9,6 +12,10 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canSee: "../../img/icon_see.png",
+    tabs: ["闲钱定投", "基金定投"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
   //事件处理函数
   changeSee: function () {
@@ -47,6 +54,13 @@ Page({
     })
   },
 
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+  },
+
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -80,6 +94,16 @@ Page({
         }
       })
     }
+
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (varbarWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: varbarWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
   },
   getUserInfo: function(e) {
     console.log(e)

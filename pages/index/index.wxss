@@ -199,6 +199,80 @@ page {
   color: #787878;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3%;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow:1px 1px 5px 1px #24222220;
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3%;
+}
+
+.text11 {
+  font-size: 14px;
+  color: #363636;
+  font-weight: regular;
+}
+
+.navbar-item-mainrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-item-row {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.navbar-item-subrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text12 {
+  font-size: 24px;
+  color: #D0021B;
+  font-weight: medium;
+}
+
+.text13 {
+  font-size: 16px;
+  color: #363636;
+  font-weight: bold;
+}
+
+.text14 {
+  font-size: 14px;
+  color: #AAAAAA;
+  font-weight: medium;
+}
+
+.text15 {
+  font-size: 14px;
+  color: #363636;
+  font-weight: regular;
+}
+
+.arrow-icon {
+  width: 9px;
+  height: 17px;
+}
+
 ::-webkit-scrollbar {
   width: 0;
   height: 0;

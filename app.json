@@ -4,10 +4,11 @@
     "pages/logs/logs",
     "pages/echarts/echarts",
     "pages/pie/pie",
-    "pages/examination/examination"
+    "pages/examination/examination",
+    "pages/navtest/navtest"
   ],
   "window": {
-    "navigationStyle":"default",
+    "navigationStyle": "default",
     "backgroundTextStyle": "light",
     "backgroundColor": "#eee",
     "navigationBarBackgroundColor": "#eee",
@@ -18,14 +19,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "img/bar_icon_home_nor.png",
+        "selectedIconPath": "img/bar_icon_home.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/examination/examination",
+        "iconPath": "img/bar_icon_assets.png",
+        "selectedIconPath": "img/bar_icon_home_nor.png",
         "text": "资产"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/echarts/echarts",
+        "iconPath": "img/bar_icon_my.png",
+        "selectedIconPath": "img/bar_icon_home_nor.png",
         "text": "我的"
       }
     ]

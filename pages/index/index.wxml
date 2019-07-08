@@ -100,3 +100,117 @@
     我也不知道这里要填什么
   </view>
 </view>
+<view class="navbar">
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="navbar-item">
+          <view class="text11">定投产品名称</view>
+          <view class="navbar-item-mainrow">
+            <view class="navbar-item-row">
+              <view class="navbar-item-subrow">
+                <view class="text12">59.3100%</view>
+                <view class="text13">随时存取</view>
+              </view>
+              <view class="navbar-item-subrow">
+                <view class="text14">七日年化收益</view>
+                <view class="text15">无封闭期</view>
+              </view>
+            </view>
+            <image class="arrow-icon" src="../../img/icon_see.png"></image>
+          </view>
+        </view>
+        <view class="navbar-item">
+          <view class="text11">定投产品名称</view>
+          <view class="navbar-item-mainrow">
+            <view class="navbar-item-row">
+              <view class="navbar-item-subrow">
+                <view class="text12">59.3100%</view>
+                <view class="text13">随时存取</view>
+              </view>
+              <view class="navbar-item-subrow">
+                <view class="text14">七日年化收益</view>
+                <view class="text15">无封闭期</view>
+              </view>
+            </view>
+            <image class="arrow-icon" src="../../img/icon_see.png"></image>
+          </view>
+        </view>
+        <view class="navbar-item">
+          <view class="text11">定投产品名称</view>
+          <view class="navbar-item-mainrow">
+            <view class="navbar-item-row">
+              <view class="navbar-item-subrow">
+                <view class="text12">59.3100%</view>
+                <view class="text13">随时存取</view>
+              </view>
+              <view class="navbar-item-subrow">
+                <view class="text14">七日年化收益</view>
+                <view class="text15">无封闭期</view>
+              </view>
+            </view>
+            <image class="arrow-icon" src="../../img/icon_see.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class="navbar-item">
+          <view class="text11">基金产品名称</view>
+          <view class="navbar-item-mainrow">
+            <view class="navbar-item-row">
+              <view class="navbar-item-subrow">
+                <view class="text12">59.3100%</view>
+                <view class="text13">随时存取</view>
+              </view>
+              <view class="navbar-item-subrow">
+                <view class="text14">七日年化收益</view>
+                <view class="text15">无封闭期</view>
+              </view>
+            </view>
+            <image class="arrow-icon" src="../../img/icon_see.png"></image>
+          </view>
+        </view>
+        <view class="navbar-item">
+          <view class="text11">基金产品名称</view>
+          <view class="navbar-item-mainrow">
+            <view class="navbar-item-row">
+              <view class="navbar-item-subrow">
+                <view class="text12">59.3100%</view>
+                <view class="text13">随时存取</view>
+              </view>
+              <view class="navbar-item-subrow">
+                <view class="text14">七日年化收益</view>
+                <view class="text15">无封闭期</view>
+              </view>
+            </view>
+            <image class="arrow-icon" src="../../img/icon_see.png"></image>
+          </view>
+        </view>
+        <view class="navbar-item">
+          <view class="text11">基金产品名称</view>
+          <view class="navbar-item-mainrow">
+            <view class="navbar-item-row">
+              <view class="navbar-item-subrow">
+                <view class="text12">59.3100%</view>
+                <view class="text13">随时存取</view>
+              </view>
+              <view class="navbar-item-subrow">
+                <view class="text14">七日年化收益</view>
+                <view class="text15">无封闭期</view>
+              </view>
+            </view>
+            <image class="arrow-icon" src="../../img/icon_see.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
