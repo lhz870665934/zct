@@ -1,14 +1,102 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 使用微信认证登录 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!-- index.wxml -->
+<view class="myinfo-background">
+  <view class="myinfo">
+    <view class="subtitle1">
+      <view class="text1">总资产（元）</view>
+      <image class="icon1" src="{{ canSee }}" bindtap="changeSee"></image>
+    </view>
+    <view class="text2">105,000.56</view>
+    <view class="subtitle2">
+      <view>
+        <view class="text1">最新收益</view>
+        <view class="text3">+1289.67元</view>
+        <view class="text3">5.89%</view>
+      </view>
+      <view>
+        <view class="text1">累计收益</view>
+        <view class="text3">+1289.67</view>
+        <view class="text3">5.89%</view>
+      </view>
+    </view>
+    <view class="divLine"></view>
+    <view class="text4">你还有xx笔资产正在处理中</view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</view>
+<view class="main-function">
+  <view class="main-button">
+    <image class="icon2" src="../../img/icon_money.png"></image>
+    <view class="text5">闲钱定投</view>
   </view>
-  <button bindtap="ToExamination">测试页面</button>
+  <view class="main-button">
+    <image class="icon2" src="../../img/icon_jijin.png"></image>
+    <view class="text5">基金定投</view>
+  </view>
+  <view class="main-button">
+    <image class="icon2" src="../../img/icon_gold.png"></image>
+    <view class="text5">黄金定投</view>
+  </view>
+</view>
+<view class="text6">为您推荐</view>
+<view class="recommend-function">
+  <view class="recommend-button">
+    <view class="text-box">
+      <view class="text7" style="color:#F8633B">稳健投资</view>
+      <view class="text8">证券名</view>
+      <view class="recommend-button-row">
+        <view class="text9">59.31%</view>
+        <view class="text10">七日年化</view>
+      </view>
+    </view>
+  </view>
+  <view class="recommend-button">
+    <view class="text-box">
+      <view class="text7" style="color:#319A80">优选基金</view>
+      <view class="text8">我们要暖暖的幸...</view>
+      <view class="recommend-button-row">
+        <view class="text9">9.31%</view>
+        <view class="text10">七日年化</view>
+      </view>
+    </view>
+  </view>
+  <view class="recommend-button">
+    我也不知道这里要填什么
+  </view>
+  <view class="recommend-button">
+    我也不知道这里要填什么
+  </view>
+  <view class="recommend-button">
+    我也不知道这里要填什么
+  </view>
+</view>
+<view class="text6">热门产品</view>
+<view class="recommend-function">
+  <view class="recommend-button">
+    <view class="text-box">
+      <view class="text7" style="color:#F8633B">稳健投资</view>
+      <view class="text8">证券名</view>
+      <view class="recommend-button-row">
+        <view class="text9">59.31%</view>
+        <view class="text10">七日年化</view>
+      </view>
+    </view>
+  </view>
+  <view class="recommend-button">
+    <view class="text-box">
+      <view class="text7" style="color:#319A80">优选基金</view>
+      <view class="text8">我们要暖暖的幸...</view>
+      <view class="recommend-button-row">
+        <view class="text9">9.31%</view>
+        <view class="text10">七日年化</view>
+      </view>
+    </view>
+  </view>
+  <view class="recommend-button">
+    我也不知道这里要填什么
+  </view>
+  <view class="recommend-button">
+    我也不知道这里要填什么
+  </view>
+  <view class="recommend-button">
+    我也不知道这里要填什么
+  </view>
 </view>

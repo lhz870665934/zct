@@ -7,9 +7,21 @@ Page({
     motto: '欢迎使用智存投！',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    canSee: "../../img/icon_see.png",
   },
   //事件处理函数
+  changeSee: function () {
+    if (this.data.canSee == "../../img/icon_see.png")
+      this.setData({
+        canSee: "../../img/icon_unsee.png"
+      })
+    else 
+      this.setData({
+        canSee: "../../img/icon_see.png"
+      })
+  },
+
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'

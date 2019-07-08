@@ -7,11 +7,28 @@
     "pages/examination/examination"
   ],
   "window": {
+    "navigationStyle":"default",
     "backgroundTextStyle": "light",
     "backgroundColor": "#eee",
     "navigationBarBackgroundColor": "#eee",
-    "navigationBarTitleText": "ECharts 图表示例",
+    "navigationBarTitleText": "红棉定投",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "资产"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的"
+      }
+    ]
   },
   "sitemapLocation": "sitemap84.json"
 }
