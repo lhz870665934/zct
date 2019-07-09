@@ -3,19 +3,24 @@
   <view class="myinfo">
     <view class="subtitle1">
       <view class="text1">总资产（元）</view>
-      <image class="icon1" src="{{ canSee }}" bindtap="changeSee"></image>
+      <image class="icon1" src="{{ canSeePath }}" bindtap="changeSee"></image>
     </view>
-    <view class="text2">105,000.56</view>
+    <view wx:if="{{ canSee }}" class="text2">{{ total_asset }}</view>
+    <view wx:else class="text2">****</view>
     <view class="subtitle2">
       <view>
         <view class="text1">最新收益</view>
-        <view class="text3">+1289.67元</view>
-        <view class="text3">5.89%</view>
+        <view wx:if="{{ canSee }}" class="text3">{{ latest_revenue }}元</view>
+        <view wx:else class="text3">****</view>
+        <view wx:if="{{ canSee }}" class="text3">{{ latest_ration }}%</view>
+        <view wx:else class="text3">****</view>
       </view>
       <view>
         <view class="text1">累计收益</view>
-        <view class="text3">+1289.67</view>
-        <view class="text3">5.89%</view>
+        <view wx:if="{{ canSee }}" class="text3">{{ accu_revenue }}</view>
+        <view wx:else class="text3">****</view>
+        <view wx:if="{{ canSee }}" class="text3">{{ accu_ration }}%</view>
+        <view wx:else class="text3">****</view>
       </view>
     </view>
     <view class="divLine"></view>
@@ -38,66 +43,30 @@
 </view>
 <view class="text6">为您推荐</view>
 <view class="recommend-function">
-  <view class="recommend-button">
+  <view class="recommend-button" wx:for="{{ recommend_list }}" wx:key>
     <view class="text-box">
-      <view class="text7" style="color:#F8633B">稳健投资</view>
-      <view class="text8">证券名</view>
+      <view class="text7" style="color:{{ item.text_color }}">{{ item.data_type_name }}</view>
+      <view class="text8">{{ item.product_name }}</view>
       <view class="recommend-button-row">
-        <view class="text9">59.31%</view>
-        <view class="text10">七日年化</view>
+        <view class="text9">{{ item.earn }}%</view>
+        <view wx:if="{{ item.data_type == 0 }}" class="text10">七日年化</view>
+        <view wx:else class="text10">近6月收益</view>
       </view>
     </view>
-  </view>
-  <view class="recommend-button">
-    <view class="text-box">
-      <view class="text7" style="color:#319A80">优选基金</view>
-      <view class="text8">我们要暖暖的幸...</view>
-      <view class="recommend-button-row">
-        <view class="text9">9.31%</view>
-        <view class="text10">七日年化</view>
-      </view>
-    </view>
-  </view>
-  <view class="recommend-button">
-    我也不知道这里要填什么
-  </view>
-  <view class="recommend-button">
-    我也不知道这里要填什么
-  </view>
-  <view class="recommend-button">
-    我也不知道这里要填什么
   </view>
 </view>
 <view class="text6">热门产品</view>
 <view class="recommend-function">
-  <view class="recommend-button">
+  <view class="recommend-button" wx:for="{{ hot_list }}" wx:key>
     <view class="text-box">
-      <view class="text7" style="color:#F8633B">稳健投资</view>
-      <view class="text8">证券名</view>
+      <view class="text7" style="color:{{ item.text_color }}">{{ item.data_type_name }}</view>
+      <view class="text8">{{ item.product_name }}</view>
       <view class="recommend-button-row">
-        <view class="text9">59.31%</view>
-        <view class="text10">七日年化</view>
+        <view class="text9">{{ item.earn }}%</view>
+        <view wx:if="{{ item.data_type == 0 }}" class="text10">七日年化</view>
+        <view wx:else class="text10">近6月收益</view>
       </view>
     </view>
-  </view>
-  <view class="recommend-button">
-    <view class="text-box">
-      <view class="text7" style="color:#319A80">优选基金</view>
-      <view class="text8">我们要暖暖的幸...</view>
-      <view class="recommend-button-row">
-        <view class="text9">9.31%</view>
-        <view class="text10">七日年化</view>
-      </view>
-    </view>
-  </view>
-  <view class="recommend-button">
-    我也不知道这里要填什么
-  </view>
-  <view class="recommend-button">
-    我也不知道这里要填什么
-  </view>
-  <view class="recommend-button">
-    我也不知道这里要填什么
   </view>
 </view>
 <view class="navbar">
@@ -112,102 +81,42 @@
     </view>
     <view class="weui-tab__panel">
       <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-        <view class="navbar-item">
-          <view class="text11">定投产品名称</view>
+        <view wx:for="{{ product_list }}" wx:key class="navbar-item">
+          <view class="text11">{{ item.product_name }}</view>
           <view class="navbar-item-mainrow">
             <view class="navbar-item-row">
               <view class="navbar-item-subrow">
-                <view class="text12">59.3100%</view>
-                <view class="text13">随时存取</view>
+                <view class="text12">{{ item.earn }}%</view>
+                <view wx:if="{{ item.close_period == 0 }}" class="text13">随时存取</view>
+                <view wx:else class="text13">{{ item.close_period }}天</view>
               </view>
               <view class="navbar-item-subrow">
                 <view class="text14">七日年化收益</view>
-                <view class="text15">无封闭期</view>
+                <view wx:if="{{ item.close_period == 0 }}" class="text15">无封闭期</view>
+                <view wx:else class="text15">封闭期</view>
               </view>
             </view>
-            <image class="arrow-icon" src="../../img/icon_see.png"></image>
-          </view>
-        </view>
-        <view class="navbar-item">
-          <view class="text11">定投产品名称</view>
-          <view class="navbar-item-mainrow">
-            <view class="navbar-item-row">
-              <view class="navbar-item-subrow">
-                <view class="text12">59.3100%</view>
-                <view class="text13">随时存取</view>
-              </view>
-              <view class="navbar-item-subrow">
-                <view class="text14">七日年化收益</view>
-                <view class="text15">无封闭期</view>
-              </view>
-            </view>
-            <image class="arrow-icon" src="../../img/icon_see.png"></image>
-          </view>
-        </view>
-        <view class="navbar-item">
-          <view class="text11">定投产品名称</view>
-          <view class="navbar-item-mainrow">
-            <view class="navbar-item-row">
-              <view class="navbar-item-subrow">
-                <view class="text12">59.3100%</view>
-                <view class="text13">随时存取</view>
-              </view>
-              <view class="navbar-item-subrow">
-                <view class="text14">七日年化收益</view>
-                <view class="text15">无封闭期</view>
-              </view>
-            </view>
-            <image class="arrow-icon" src="../../img/icon_see.png"></image>
+            <image class="arrow-icon" src="../../img/icon_arrow.png"></image>
           </view>
         </view>
       </view>
       <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-        <view class="navbar-item">
-          <view class="text11">基金产品名称</view>
+        <view wx:for="{{ fund_list }}" wx:key class="navbar-item">
+          <view class="text11">{{ item.product_name }}</view>
           <view class="navbar-item-mainrow">
             <view class="navbar-item-row">
               <view class="navbar-item-subrow">
-                <view class="text12">59.3100%</view>
-                <view class="text13">随时存取</view>
+                <view class="text12">{{ item.earn }}%</view>
+                <view wx:if="{{ item.close_period == 0 }}" class="text13">随时存取</view>
+                <view wx:else class="text13">{{ item.close_period }}天</view>
               </view>
               <view class="navbar-item-subrow">
-                <view class="text14">七日年化收益</view>
-                <view class="text15">无封闭期</view>
+                <view class="text14">近6月收益</view>
+                <view wx:if="{{ item.close_period == 0 }}" class="text15">无封闭期</view>
+                <view wx:else class="text15">封闭期</view>
               </view>
             </view>
-            <image class="arrow-icon" src="../../img/icon_see.png"></image>
-          </view>
-        </view>
-        <view class="navbar-item">
-          <view class="text11">基金产品名称</view>
-          <view class="navbar-item-mainrow">
-            <view class="navbar-item-row">
-              <view class="navbar-item-subrow">
-                <view class="text12">59.3100%</view>
-                <view class="text13">随时存取</view>
-              </view>
-              <view class="navbar-item-subrow">
-                <view class="text14">七日年化收益</view>
-                <view class="text15">无封闭期</view>
-              </view>
-            </view>
-            <image class="arrow-icon" src="../../img/icon_see.png"></image>
-          </view>
-        </view>
-        <view class="navbar-item">
-          <view class="text11">基金产品名称</view>
-          <view class="navbar-item-mainrow">
-            <view class="navbar-item-row">
-              <view class="navbar-item-subrow">
-                <view class="text12">59.3100%</view>
-                <view class="text13">随时存取</view>
-              </view>
-              <view class="navbar-item-subrow">
-                <view class="text14">七日年化收益</view>
-                <view class="text15">无封闭期</view>
-              </view>
-            </view>
-            <image class="arrow-icon" src="../../img/icon_see.png"></image>
+            <image class="arrow-icon" src="../../img/icon_arrow.png"></image>
           </view>
         </view>
       </view>

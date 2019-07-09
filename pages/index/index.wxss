@@ -146,7 +146,7 @@ page {
   flex-wrap: nowrap;
   overflow: auto;
   margin-bottom: 5%;
-  height: 100px;
+  height: 105px;
 }
 
 .recommend-button {

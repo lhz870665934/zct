@@ -11,21 +11,63 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canSee: "../../img/icon_see.png",
+    canSee: true,
+    canSeePath: "../../img/icon_see.png",
     tabs: ["闲钱定投", "基金定投"],
     activeIndex: 0,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+
+    total_asset: 105000.56,
+    latest_revenue: "+1289.67",
+    latest_ration: 5.89,
+    accu_revenue: "+1289.67",
+    accu_ration: 5.89,
+    recommend_list: [
+      {
+        data_type: 0,
+        product_name: "证券名",
+        earn: 59.31,
+        data_type_name: "",
+        text_color: "",
+      }
+    ],
+    hot_list: [
+      {
+        data_type: 1,
+        product_name: "证券名",
+        earn: 59.31,
+        data_type_name: "",
+        text_color: "",
+      }
+    ],
+    product_list: [
+      {
+        product_name: "定投产品名称",
+        earn: 59.3100,
+        close_period: 0
+      }
+    ],
+    fund_list: [
+      {
+        product_name: "基金产品名称",
+        earn: 59.3100,
+        close_period: 28
+      }
+    ],
   },
   //事件处理函数
   changeSee: function () {
-    if (this.data.canSee == "../../img/icon_see.png")
+    this.setData({
+      canSee : this.data.canSee ? false : true
+    });
+    if (this.data.canSeePath == "../../img/icon_see.png")
       this.setData({
-        canSee: "../../img/icon_unsee.png"
+        canSeePath: "../../img/icon_unsee.png"
       })
     else 
       this.setData({
-        canSee: "../../img/icon_see.png"
+        canSeePath: "../../img/icon_see.png"
       })
   },
 
@@ -104,7 +146,47 @@ Page({
         });
       }
     });
+
+    //请求后做的事情
+    for (var i = 0; i < this.data.recommend_list.length; i++) {
+      var temp_list = this.data.recommend_list;
+
+      if (this.data.recommend_list[i].data_type == 0) {
+        temp_list[i].data_type_name = "稳健投资";
+        temp_list[i].text_color = "#F8633B";
+        this.setData({
+          recommend_list: temp_list
+        })
+      }
+      else {
+        temp_list[i].data_type_name = "优选基金";
+        temp_list[i].text_color = "#319A80";
+        this.setData({
+          recommend_list: temp_list
+        })
+      }
+    }
+    for (var i = 0; i < this.data.hot_list.length; i++) {
+      var temp_list = this.data.hot_list;
+
+      if (this.data.hot_list[i].data_type == 0) {
+        temp_list[i].data_type_name = "稳健投资";
+        temp_list[i].text_color = "#F8633B";
+        this.setData({
+          hot_list: temp_list
+        })
+      }
+      else {
+        temp_list[i].data_type_name = "优选基金";
+        temp_list[i].text_color = "#319A80";
+        this.setData({
+          hot_list: temp_list
+        })
+      }
+    }
+
   },
+
   getUserInfo: function(e) {
     console.log(e)
     // console.log("test")
