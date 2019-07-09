@@ -5,7 +5,8 @@
     "pages/echarts/echarts",
     "pages/pie/pie",
     "pages/examination/examination",
-    "pages/navtest/navtest"
+    "pages/navtest/navtest",
+    "pages/purchase/purchase"
   ],
   "window": {
     "navigationStyle": "default",

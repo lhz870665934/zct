@@ -1,0 +1,138 @@
+/* pages/purchase/purchase.wxss */
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #F8F8F8;
+}
+
+.weui-navbar {
+  background-color: #FFFFFF;
+}
+
+.product-container {
+  background-color: #FFFFFF;
+  margin-top: 5%;
+  padding: 4%;
+}
+
+.text1 {
+  font-size: 16px;
+  font-weight: regular;
+  color: #363636;
+}
+
+.amount-container {
+  background-color: #FFFFFF;
+  margin-top: 5%;
+  padding: 4%;
+}
+
+.amount-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text2 {
+  font-size: 14px;
+  font-weight: regular;
+  color: #2874F4;
+}
+
+.amount-input {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.text3 {
+  font-size: 32px;
+  font-weight: Medium;
+  color: #363636;
+}
+
+.input {
+  margin-left: 2%;
+}
+
+.inputUnderline {
+  background: #CCCCCC;
+  height: 1px;
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+.text4 {
+  font-size: 14px;
+  font-weight: Regular;
+  color: #787878;
+}
+
+.paymentStyle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  margin-top: 5%;
+  padding-left: 4%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.text5 {
+  font-size: 16px;
+  font-weight: Regular;
+  color: #363636;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.text6 {
+  font-size: 14px;
+  font-weight: Medium;
+  color: #363636;
+}
+
+.text7 {
+  font-size: 14px;
+  font-weight: Regular;
+  color: #787878;
+}
+
+.arrow-icon {
+  width: 9px;
+  height: 17px;
+}
+
+.investStyle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  margin-top: 5%;
+  padding-left: 4%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.investStyle-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text9 {
+  font-size: 16px;
+  font-weight: Regular;
+  color: #BFBFBF;
+}
