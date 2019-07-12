@@ -1,0 +1,62 @@
+/* pages/details/details.wxss */
+.product_name_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.product_name {
+  font-size: 16px;
+  font-weight: Regular;
+  color: #787878;
+}
+
+.product_info_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.product_info_earning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text1 {
+  font-size: 32px;
+  font-weight: Medium;
+  color: #D0021B;
+}
+
+.text2 {
+  font-size: 32px;
+  font-weight: Medium;
+  color: #363636;
+}
+
+.product_info_benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text3 {
+  font-size: 16px;
+  font-weight: Regular;
+  color: #787878;
+}
+
+.divLine_container {
+  display: flex;
+  justify-content: center;
+}
+
+.divLine {
+  background: #CCCCCC;
+  height: 1px; 
+  width: 90%;
+}

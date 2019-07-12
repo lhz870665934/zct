@@ -6,7 +6,8 @@
     "pages/pie/pie",
     "pages/examination/examination",
     "pages/navtest/navtest",
-    "pages/purchase/purchase"
+    "pages/purchase/purchase",
+    "pages/details/details"
   ],
   "window": {
     "navigationStyle": "default",

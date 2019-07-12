@@ -1,0 +1,17 @@
+<!--pages/details/details.wxml-->
+<view class="product_name_container">
+  <view class="product_name">{{ product_name }}</view>
+</view>
+<view class="product_info_container">
+  <view class="product_info_earning">
+    <view class="text1">{{ earning }}</view>
+    <view class="text3">七日年化(%)</view>
+  </view>
+  <view class="product_info_benefit">
+    <view class="text2">{{ benefit }}</view>
+    <view class="text3">万份收益</view>
+  </view>
+</view>
+<view class="divLine_container">
+  <view class="divLine"></view>
+</view>
