@@ -21,6 +21,9 @@ Page({
     multiIndex_style: [0, 0],
     multiArray: [["每周　", "每两周", "每月", "每日"], ["周一", "周二", "周三", "周四", "周五"]],
     multiIndex: [0, 0],
+
+    isAgree: false,
+    confirm_disabled: true
   },
 
   tabClick: function (e) {
@@ -69,6 +72,17 @@ Page({
       break;
     }
     this.setData(data);
+  },
+
+  bindAgreeChange: function (e) {
+    this.setData({
+      isAgree: !!e.detail.value.length,
+      confirm_disabled: !e.detail.value.length
+    });
+  },
+
+  confirm: function (e) {
+    
   },
 
   /**
