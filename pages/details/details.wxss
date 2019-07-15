@@ -1,8 +1,19 @@
 /* pages/details/details.wxss */
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  width: 100%;
+}
+
+.details_part1 {
+  background-color: #FFFFFF;
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
 .product_name_container {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
 }
 
 .product_name {
@@ -93,4 +104,24 @@
   font-size: 14px;
   font-weight: Regular;
   color: #787878;
+}
+
+.details_part2 {
+  background-color: #FFFFFF;
+  margin-top: 3%;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-container {
+  width: 375px;
+  height: 285px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
