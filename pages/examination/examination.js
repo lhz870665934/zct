@@ -1,4 +1,7 @@
 // pages/examination/examination.js
+
+var app = getApp()
+
 Page({
 
   /**
@@ -305,6 +308,9 @@ Page({
       this.data.total_points += this.data.point[i]
     }
     console.log(this.data.total_points)
+    wx.navigateTo({
+      url: '../purchase/purchase',
+    })
   },
 
   bindchange: function (e) {

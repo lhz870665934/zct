@@ -28,7 +28,7 @@
   </view>
 </view>
 <view class="main-function">
-  <view class="main-button">
+  <view class="main-button" bindtap="toProductDetails">
     <image class="icon2" src="../../img/icon_money.png"></image>
     <view class="text5">闲钱定投</view>
   </view>

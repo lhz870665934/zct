@@ -103,6 +103,12 @@ Page({
     });
   },
 
+  toProductDetails: function (e) {
+    wx.navigateTo({
+      url: '../details/details',
+    })
+  },
+
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

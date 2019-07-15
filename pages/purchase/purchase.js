@@ -1,12 +1,15 @@
 // pages/purchase/purchase.js
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
+
+var app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabs: ["充值", "定投"],
+    tabs: ["买入", "定投"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
@@ -90,6 +93,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    this.setData({
+      activeIndex: app.globalData.purchase
+    })
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -98,6 +104,7 @@ Page({
         });
       }
     });
+    
   },
 
   /**

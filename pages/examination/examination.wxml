@@ -2,10 +2,10 @@
 <view class="page_container">
 
   <view class="question_container">
-    <view class="question_each" wx:for="{{ question_list }}" animation="{{ani}}">
+    <view class="question_each" wx:for="{{ question_list }}" wx:key animation="{{ani}}">
       <view class="question_text">{{index + 1}}、{{item.question}}</view>
       <radio-group class="radio_group" data-index="{{index}}" bindchange="bindchange">
-        <view class="radio_container" wx:for="{{answer_list[index]}}">
+        <view class="radio_container" wx:for="{{answer_list[index]}}" wx:key>
           <radio value="{{index}}" checked="{{item.checked}}"></radio>
           <view>{{item.name}}</view>
         </view>

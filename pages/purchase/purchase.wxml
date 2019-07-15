@@ -15,7 +15,7 @@
         </view>
         <view class="amount-container">
           <view class="amount-title">
-            <view class="text1">充值金额（元）</view>
+            <view class="text1">买入金额（元）</view>
             <view class="text2">交易规则</view>
           </view>
           <view class="amount-input">

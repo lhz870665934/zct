@@ -51,7 +51,6 @@ function initChart(canvas, width, height) {
       }
     ]
   };
-
   chart.setOption(option);
   return chart;
 }
@@ -265,7 +264,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    Chart = null;
   },
 
   /**
