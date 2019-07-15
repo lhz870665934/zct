@@ -49,3 +49,29 @@
     <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
   </view>
 </view>
+
+<view class="details_part3">
+  <view class="company_container">
+    <view class="text5">基金公司</view>
+    <view class="text6">XXXXX公司</view>
+  </view>
+  <view class="divLine_container">
+    <view class="divLine"></view>
+  </view>
+  <view class="company_container">
+    <view class="text5">基金经理</view>
+    <view class="text6">李杜子腾</view>
+  </view>
+</view>
+
+<view class="details_part4">
+  <view class="text7">产品持仓</view>
+  <view class="pie-container">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec_pie }}"></ec-canvas>
+  </view>
+</view>
+
+<view class="button_group">
+  <button class="button1" bindtap="purchase1">买入</button>
+  <button class="button1" type="warn" bindtap="purchase2">定投</button>
+</view>

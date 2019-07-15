@@ -26,14 +26,14 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/examination/examination",
-        "iconPath": "img/bar_icon_assets.png",
+        "pagePath": "pages/index/index",
+        "iconPath": "img/bar_icon_home_nor.png",
         "selectedIconPath": "img/bar_icon_home_nor.png",
         "text": "资产"
       },
       {
-        "pagePath": "pages/echarts/echarts",
-        "iconPath": "img/bar_icon_my.png",
+        "pagePath": "pages/index/index",
+        "iconPath": "img/bar_icon_home_nor.png",
         "selectedIconPath": "img/bar_icon_home_nor.png",
         "text": "我的"
       }
