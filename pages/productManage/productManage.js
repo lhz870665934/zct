@@ -13,6 +13,36 @@ Page({
 
     canSee: true,
     canSeePath: "../../img/icon_see.png",
+    settting_list: 
+    [
+      {
+        style: "每周定投100元",
+        setting_id: "3"
+      },
+      {
+        style: "每周定投200元",
+        setting_id: "8"
+      }
+    ],
+    trade_record_list_show:
+    [
+      {
+        style: "快速取现",
+
+      }
+    ],
+    trade_record_list:
+    [
+      {
+        style: "快速取现",
+        status: "进行中，预计2019年7月27日到账",
+        amount: "-20元"
+      }
+    ]
+  },
+
+  setting_click: function (e) {
+    console.log(e.currentTarget.dataset.id)
   },
 
   /**

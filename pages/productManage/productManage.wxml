@@ -27,3 +27,25 @@
     </view>
   </view>
 </view>
+
+<view class="setting_title">
+  <view class="text4">定投设置</view>
+</view>
+<view class="divLine"></view>
+<view wx:for="{{ settting_list }}" wx:key>
+  <view class="settting" bindtap="setting_click" data-id="{{ item.setting_id }}">
+    <view class="text5">{{ item.style }}</view>
+    <view>
+      <image class="icon_arrow" src="../../img/icon_arrow.png"></image>
+    </view>
+  </view>
+  <view class="divLine_1"></view>
+</view>
+
+<view class="setting_title">
+  <view class="text4">交易记录</view>
+</view>
+<view class="divLine"></view>
+<view class="record" wx:for="{{ trade_record_list }}" wx:key>
+  <view class="text6"></view>
+</view>
