@@ -1,1 +1,64 @@
 /* pages/fund/fund.wxss */
+page {
+  background-color: #F8F8F8;
+}
+
+.divLine1 {
+  background: #EEEEEE;
+  height: 1px;
+  width: 100%;
+}
+
+.myinfo {
+  background-color: #FFFFFF;
+  padding: 5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon1 {
+  width: 20px;
+  height: 14px;
+}
+
+.myinfo_sub {
+  margin-right: 20%;
+}
+
+.text1 {
+  font-size: 16px;
+  color: #787878;
+  font-weight: Regular;
+}
+
+.text2 {
+  font-size: 32px;
+  color: #363636;
+  font-weight: bold;
+}
+
+.text3 {
+  font-size: 18px;
+  color: #363636;
+  font-weight: Medium;
+}
+
+.subtitle2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.fund_details {
+  background-color: #FFFFFF;
+  width: 100%;
+  padding: 5%;
+  margin-top: 5%;
+}

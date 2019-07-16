@@ -28,26 +28,29 @@
   </view>
 </view>
 
-<view class="details_part2">
-  <view class="weui-tab">
-    <view class="weui-navbar">
-      <block wx:for="{{tabs}}" wx:key="*this">
-        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-          <view class="weui-navbar__title">{{item}}</view>
-        </view>
-      </block>
-      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-    </view>
-    <view class="weui-tab__panel">
-      <view class="weui-tab__content" hidden="{{activeIndex != 0}}"></view>
-      <view class="weui-tab__content" hidden="{{activeIndex != 1}}"></view>
-      <view class="weui-tab__content" hidden="{{activeIndex != 2}}"></view>
-      <view class="weui-tab__content" hidden="{{activeIndex != 3}}"></view>
+<view class="details_part2_container">
+  <view class="details_part2">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}"></view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}"></view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}"></view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 3}}"></view>
+      </view>
     </view>
   </view>
-  <view class="chart-container">
-    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
-  </view>
+</view>
+
+<view class="chart-container">
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
 </view>
 
 <view class="details_part3">

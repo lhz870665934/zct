@@ -5,7 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
+    total_asset: 105000.56,
+    latest_revenue: "+1289.67",
+    latest_ration: 5.89,
+    accu_revenue: "+1289.67",
+    accu_ration: 5.89,
 
+    canSee: true,
+    canSeePath: "../../img/icon_see.png",
+  },
+
+  changeSee: function () {
+    this.setData({
+      canSee: this.data.canSee ? false : true
+    });
+    if (this.data.canSeePath == "../../img/icon_see.png")
+      this.setData({
+        canSeePath: "../../img/icon_unsee.png"
+      })
+    else
+      this.setData({
+        canSeePath: "../../img/icon_see.png"
+      })
   },
 
   /**
