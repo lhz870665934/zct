@@ -67,7 +67,7 @@ page {
 }
 
 .divLine {
-  background: #eeeeee;
+  background: #EEEEEE;
   height: 1px; 
   width: 80%;
 }
