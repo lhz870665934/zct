@@ -1,5 +1,5 @@
 <!--pages/fund/fund.wxml-->
-<view class="divLine1"></view>
+<view class="divLine"></view>
 
 <view class="myinfo">
   <view class="subtitle1">
@@ -26,6 +26,37 @@
   </view>
 </view>
 
-<view class="fund_details">
-  资产明细
+<view class="fund_details_title">
+  <view class="text4">资产明细</view>
+</view>
+
+<view class="divLine"></view>
+
+<view class="fund_details_container">
+  <view class="fund_details_name" bindtap="toProductManage">
+    <view class="text5">易方达上证50指数C产品名</view>
+    <view>
+      <image class="icon_arrow" src="../../img/icon_arrow.png"></image>
+    </view>
+  </view>
+  <view class="fund_details">
+    <view class="fund_details_block">
+      <view class="text6">持有金额</view>
+      <view class="text7">+1289.67元</view>
+    </view>
+    <view>
+      <view class="text6">占比</view>
+      <view class="text7">100.00%</view>
+    </view>
+  </view>
+  <view class="fund_details">
+    <view class="fund_details_block">
+      <view class="text6">最新收益</view>
+      <view class="text7">+1289.67元</view>
+    </view>
+    <view>
+      <view class="text6">累计收益</view>
+      <view class="text7">+1289.67元</view>
+    </view>
+  </view>
 </view>

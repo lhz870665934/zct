@@ -3,7 +3,7 @@ page {
   background-color: #F8F8F8;
 }
 
-.divLine1 {
+.divLine {
   background: #EEEEEE;
   height: 1px;
   width: 100%;
@@ -42,6 +42,7 @@ page {
   font-size: 32px;
   color: #363636;
   font-weight: bold;
+  padding-bottom: 5%;
 }
 
 .text3 {
@@ -56,9 +57,66 @@ page {
   justify-content: flex-start;
 }
 
-.fund_details {
+.fund_details_title {
   background-color: #FFFFFF;
   width: 100%;
-  padding: 5%;
+  padding: 4%;
   margin-top: 5%;
+}
+
+.text4 {
+  font-size: 18px;
+  color: #363636;
+  font-weight: Bold;
+}
+
+.fund_details_container {
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.fund_details_name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4%;
+}
+
+.text5 {
+  font-size: 16px;
+  color: #363636;
+  font-weight: Regular;
+}
+
+.icon_arrow {
+  width: 9px;
+  height: 17px;
+}
+
+.fund_details {
+  display: flex;
+  flex-direction: row;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+}
+
+.fund_details_block {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20%;
+}
+
+.text6 {
+  font-size: 16px;
+  color: #787878;
+  font-weight: Regular;
+}
+
+.text7 {
+  font-size: 18px;
+  color: #000000;
+  font-weight: Medium;
 }

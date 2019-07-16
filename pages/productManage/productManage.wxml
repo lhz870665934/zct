@@ -1,0 +1,29 @@
+<!--pages/productManage/productManage.wxml-->
+<view class="title_container">
+  <view class="text_title">红棉货币基金</view>
+</view>
+
+<view class="myinfo">
+  <view class="subtitle1">
+    <view class="text1">总资产（元）</view>
+    <image class="icon1" src="{{ canSeePath }}" bindtap="changeSee"></image>
+  </view>
+  <view wx:if="{{ canSee }}" class="text2">{{ total_asset }}</view>
+  <view wx:else class="text2">****</view>
+  <view class="subtitle2">
+    <view class="myinfo_sub">
+      <view class="text1">最新收益</view>
+      <view wx:if="{{ canSee }}" class="text3">{{ latest_revenue }}元</view>
+      <view wx:else class="text3">****</view>
+      <view wx:if="{{ canSee }}" class="text3">{{ latest_ration }}%</view>
+      <view wx:else class="text3">****</view>
+    </view>
+    <view class="myinfo_sub">
+      <view class="text1">累计收益</view>
+      <view wx:if="{{ canSee }}" class="text3">{{ accu_revenue }}</view>
+      <view wx:else class="text3">****</view>
+      <view wx:if="{{ canSee }}" class="text3">{{ accu_ration }}%</view>
+      <view wx:else class="text3">****</view>
+    </view>
+  </view>
+</view>

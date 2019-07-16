@@ -1,4 +1,4 @@
-// pages/fund/fund.js
+// pages/productManage/productManage.js
 Page({
 
   /**
@@ -13,26 +13,6 @@ Page({
 
     canSee: true,
     canSeePath: "../../img/icon_see.png",
-  },
-
-  changeSee: function () {
-    this.setData({
-      canSee: this.data.canSee ? false : true
-    });
-    if (this.data.canSeePath == "../../img/icon_see.png")
-      this.setData({
-        canSeePath: "../../img/icon_unsee.png"
-      })
-    else
-      this.setData({
-        canSeePath: "../../img/icon_see.png"
-      })
-  },
-
-  toProductManage: function () {
-    wx.navigateTo({
-      url: "../productManage/productManage",
-    })
   },
 
   /**
