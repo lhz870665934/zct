@@ -7,7 +7,8 @@
     "pages/examination/examination",
     "pages/navtest/navtest",
     "pages/purchase/purchase",
-    "pages/details/details"
+    "pages/details/details",
+    "pages/fund/fund"
   ],
   "window": {
     "navigationStyle": "default",
@@ -26,7 +27,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/fund/fund",
         "iconPath": "img/bar_icon_home_nor.png",
         "selectedIconPath": "img/bar_icon_home_nor.png",
         "text": "资产"

@@ -302,15 +302,21 @@ Page({
     this.data.total_points = 0
     for (var i = 0; i < 14; i++) {
       if (this.data.point[i] == null) {
-        console.log("第" + (i+1) + "题未作答")
+        wx.showToast({
+          title: "第" + (i + 1) + "题未作答",
+          icon: "none",
+          mask: true
+        })
         break;
       }
       this.data.total_points += this.data.point[i]
+      if (i == 13) {
+        console.log(this.data.total_points)
+        wx.navigateTo({
+          url: '../purchase/purchase',
+        })
+      }
     }
-    console.log(this.data.total_points)
-    wx.navigateTo({
-      url: '../purchase/purchase',
-    })
   },
 
   bindchange: function (e) {
