@@ -273,7 +273,7 @@ Page({
       [
         {
           "name": "是",
-          "value": 0
+          "value": 1
         },
         {
           "name": "否",
@@ -283,7 +283,7 @@ Page({
       [
         {
           "name": "有",
-          "value": 0
+          "value": 1
         },
         {
           "name": "没有",
@@ -298,6 +298,10 @@ Page({
     ani: ""
   },
 
+  nullThings: function () {
+
+  },
+
   countpoints: function (options) {
     this.data.total_points = 0
     for (var i = 0; i < 14; i++) {
@@ -309,11 +313,54 @@ Page({
         })
         break;
       }
-      this.data.total_points += this.data.point[i]
+      if (i != 12 && i != 13)
+        this.data.total_points += this.data.point[i]
       if (i == 13) {
         console.log(this.data.total_points)
-        wx.navigateTo({
-          url: '../purchase/purchase',
+        var rank = -1;
+        if (12 <= this.data.total_points && this.data.total_points <= 20) {
+          rank = 5;
+        }
+        else if (21 <= this.data.total_points && this.data.total_points <= 29) {
+          rank = 4;
+        }
+        else if (30 <= this.data.total_points && this.data.total_points <= 38) {
+          rank = 3;
+        }
+        else if (39 <= this.data.total_points && this.data.total_points <= 48) {
+          rank = 2;
+        }
+        else if (49 <= this.data.total_points && this.data.total_points <= 57) {
+          if (this.data.point[12] != 1) {
+            rank = 1;
+          }
+          else rank = 0;
+        }
+
+        console.log(app.globalData)
+
+        wx.request({
+          url: app.globalData.request_address + "/invest/login/",
+          method: "POST",
+          data:
+          {
+            "openId": app.globalData.openid,
+            "name": app.globalData.userInfo.nickName,
+            "phone": "13791379137",
+            "creditCard": "123456789123456789",
+            "realName": "符嘉阳",
+            "idNumble": "440106199506066666",
+            "rank": rank
+          },
+          success(res) {
+            console.log(res.data)
+            wx.navigateTo({
+              url: '../purchase/purchase',
+            })
+          },
+          fail(res) {
+            console.log("fail!")
+          }
         })
       }
     }

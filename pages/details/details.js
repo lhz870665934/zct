@@ -207,18 +207,35 @@ Page({
     }
   },
 
+  toExamination: function () {
+    wx.request({
+      url: app.globalData.request_address + "/invest/login/first/" + app.globalData.openid,
+      method: "GET",
+      data: {},
+      success (res) {
+        console.log(res.data.data)
+        if (res.data.data == true) {
+          wx.navigateTo({
+            url: '../examination/examination'
+          })
+        }
+        else {
+          wx.navigateTo({
+            url: '../purchase/purchase'
+          })
+        }
+      }
+    })
+  },
+
   purchase1: function () {
     app.globalData.purchase = 0;
-    wx.navigateTo({
-      url: '../examination/examination',
-    })
+    this.toExamination();
   },
 
   purchase2: function () {
     app.globalData.purchase = 1;
-    wx.navigateTo({
-      url: '../examination/examination',
-    })
+    this.toExamination();
   },
 
   /**

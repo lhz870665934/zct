@@ -18,11 +18,11 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
 
-    total_asset: 105000.56,
-    latest_revenue: "+1289.67",
-    latest_ration: 5.89,
-    accu_revenue: "+1289.67",
-    accu_ration: 5.89,
+    total_asset: "--",
+    latest_revenue: "--",
+    latest_ration: "--",
+    accu_revenue: "--",
+    accu_ration: "--",
     recommend_list: [
       {
         data_type: 0,
@@ -83,18 +83,18 @@ Page({
     })
   },
 
-  sendOpenid: function () {
-    wx.request({
-      url: 'http://10.1.253.12:8081/invest/test/login/' + app.globalData.openid,
-      method: 'GET',
-      success: res => {
-        console.log(res.data)
-      },
-      fail(res) {
-        console.log('fail!')
-      }
-    })
-  },
+  // sendOpenid: function () {
+  //   wx.request({
+  //     url: 'http://10.1.253.12:8081/invest/test/login/' + app.globalData.openid,
+  //     method: 'GET',
+  //     success: res => {
+  //       console.log(res.data)
+  //     },
+  //     fail(res) {
+  //       console.log('fail!')
+  //     }
+  //   })
+  // },
 
   tabClick: function (e) {
     this.setData({
@@ -104,18 +104,95 @@ Page({
   },
 
   toProductDetails: function (e) {
+    if (app.globalData.openid == null) {
+      wx.showToast({
+        title: "请稍后重试！",
+        icon: "loading",
+        mask: true
+      })
+      return
+    }
     wx.navigateTo({
       url: '../details/details',
     })
   },
 
+  wechatLogin: function () {
+    var that = this;
+    wx.login({
+      success: res => {
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx35974e912b5ddd37&secret=d749ebb07764b7eaea3d11f6e2c06740&js_code=' + res.code + '&grant_type=authorization_code',
+          method: 'GET',
+          success: res => {
+            app.globalData.openid = res.data.openid
+            wx.showToast({
+              title: "数据获取成功！",
+              mask: true
+            })
+
+            wx.request({
+              url: app.globalData.request_address + "/invest/login/first/" + app.globalData.openid,
+              method: "GET",
+              data: {},
+              success(res) {
+                //console.log(res.data)
+                if (res.data.data == true) {
+                  //console.log("true")
+                  that.setData({
+                    total_asset: "--",
+                    latest_revenue: "--",
+                    latest_ration: "--",
+                    accu_revenue: "--",
+                    accu_ration: "--"
+                  })
+                }
+                else {
+                  console.log("false")
+                  wx.request({
+                    url: app.globalData.request_address + "/invest/user/product/info/" + app.globalData.openid,
+                    method: "GET",
+                    data: {},
+                    success(res) {
+                      console.log(res.data)
+                      var latest_revenue_string = res.data.data.userAsset.latestRevenue >= 0 ? "+" + res.data.data.userAsset.latestRevenue : "-" + res.data.data.userAsset.latestRevenue
+                      var accu_revenue_string = res.data.data.userAsset.accuRevenue >= 0 ? "+" + res.data.data.userAsset.accuRevenue : "-" + res.data.data.userAsset.accuRevenue
+                      that.setData({
+                        total_asset: res.data.data.userAsset.totalAsset,
+                        latest_revenue: latest_revenue_string,
+                        latest_ration: res.data.data.userAsset.latestRation,
+                        accu_revenue: accu_revenue_string,
+                        accu_ration: res.data.data.userAsset.accuRation
+                      })
+                    },
+                    fail(res) {
+                      console.log("fail!")
+                    }
+                  })
+                }
+              },
+              fail(res) {
+                console.log("fail!")
+              }
+            })
+          },
+          fail(res) {
+            console.log('fail!')
+          }
+        })
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      }
+    })
+  },
+
   onLoad: function () {
+    var that = this;
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-      
+      this.wechatLogin()
     } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
@@ -124,11 +201,7 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-
-        //于此向后端发送登录信息
-        //console.log(app.globalData.userInfo)
-        this.sendOpenid()
-
+        this.wechatLogin()
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -141,9 +214,9 @@ Page({
           })
         }
       })
+      this.wechatLogin()
     }
 
-    var that = this;
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -152,6 +225,12 @@ Page({
         });
       }
     });
+
+    //请求获取用户数据
+    
+
+
+
 
     //请求后做的事情
     for (var i = 0; i < this.data.recommend_list.length; i++) {

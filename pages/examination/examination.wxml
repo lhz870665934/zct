@@ -1,7 +1,7 @@
 <!--pages/examination/examination.wxml-->
 <view class="page_container">
 
-  <view class="question_container">
+  <view class="question_container" catchtouchmove="nullThings">
     <view class="question_each" wx:for="{{ question_list }}" wx:key animation="{{ani}}">
       <view class="question_text">{{index + 1}}、{{item.question}}</view>
       <radio-group class="radio_group" data-index="{{index}}" bindchange="bindchange">
