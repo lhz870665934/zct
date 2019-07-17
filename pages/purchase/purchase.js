@@ -14,7 +14,7 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     product_name: "易达方上证50指数C产品名",
-    amount: 0,
+    amount: 0.0,
     bank_name: "中国建设银行",
     bank_id: 5334,
     max_amount: 10000,
@@ -22,7 +22,7 @@ Page({
     day: "周一",
     multiArray_style: [["中国建设银行(5334)"], [10000]],
     multiIndex_style: [0, 0],
-    multiArray: [["每周　", "每两周", "每月", "每日"], ["周一", "周二", "周三", "周四", "周五"]],
+    multiArray: [["每周　", "每月 ", "每两周 ", "每日"], ["周一", "周二", "周三", "周四", "周五"]],
     multiIndex: [0, 0],
 
     isAgree: false,
@@ -54,19 +54,19 @@ Page({
       multiIndex: this.data.multiIndex
     };
     data.multiIndex[e.detail.column] = e.detail.value;
-    console.log(e.detail.column)
+    // console.log(e.detail.column)
     switch (e.detail.column) {
       case 0:
-        console.log(data.multiIndex[0])
+        // console.log(data.multiIndex[0])
         switch (data.multiIndex[0]) {
           case 0:
             data.multiArray[1] = ["周一", "周二", "周三", "周四", "周五"];
             break;
           case 1:
-            data.multiArray[1] = [];
+            data.multiArray[1] = ["1日", "2日", "3日", "4日", "5日", "6日", "7日", "8日", "9日", "10日", "11日", "12日", "13日", "14日", "15日", "16日", "17日", "18日", "19日", "20日", "21日", "22日", "23日", "24日", "25日", "26日", "27日", "28日"];
             break;
           case 2:
-            data.multiArray[1] = [];
+            data.multiArray[1] = ["周一", "周二", "周三", "周四", "周五"];
             break;
           case 3:
             data.multiArray[1] = [];
@@ -85,7 +85,50 @@ Page({
   },
 
   confirm: function (e) {
-    
+    if (this.data.activeIndex == 0) {
+      wx.request({
+        url: app.globalData.request_address + "/invest/trade/buy",
+        method: "POST",
+        data:
+        {
+          "openId": app.globalData.openid,
+          "productId": 1,
+          "amount": this.data.amount * 1.0,
+          "cardNumber": "123456789123456789",
+          "cycle": "1",
+          "frequency": "1",
+          "type": 8
+        },
+        success(res) {
+          console.log(res.data)
+        },
+        fail(res) {
+          console.log("fail!")
+        }
+      })
+    }
+    else {
+      wx.request({
+        url: app.globalData.request_address + "/invest/trade/buy",
+        method: "POST",
+        data:
+        {
+          "openId": app.globalData.openid,
+          "productId": 1,
+          "amount": this.data.amount * 1.0,
+          "cardNumber": "123456789123456789",
+          "cycle": this.data.multiIndex[0] + 1,
+          "frequency": this.data.multiIndex[1] + 1,
+          "type": 9
+        },
+        success(res) {
+          console.log(res.data)
+        },
+        fail(res) {
+          console.log("fail!")
+        }
+      })
+    }
   },
 
   /**
