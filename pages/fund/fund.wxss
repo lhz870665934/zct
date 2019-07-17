@@ -106,6 +106,7 @@ page {
 .fund_details_block {
   display: flex;
   flex-direction: column;
+  width: 40%;
   margin-right: 20%;
 }
 

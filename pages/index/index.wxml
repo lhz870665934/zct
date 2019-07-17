@@ -17,14 +17,14 @@
       </view>
       <view>
         <view class="text1">累计收益</view>
-        <view wx:if="{{ canSee }}" class="text3">{{ accu_revenue }}</view>
+        <view wx:if="{{ canSee }}" class="text3">{{ accu_revenue }}元</view>
         <view wx:else class="text3">****</view>
         <view wx:if="{{ canSee }}" class="text3">{{ accu_ration }}%</view>
         <view wx:else class="text3">****</view>
       </view>
     </view>
     <view class="divLine"></view>
-    <view class="text4">你还有xx笔资产正在处理中</view>
+    <view class="text4">你还有{{ trading_num }}笔资产正在处理中</view>
   </view>
 </view>
 <view class="main-function">

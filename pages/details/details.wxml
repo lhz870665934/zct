@@ -76,5 +76,5 @@
 
 <cover-view class="button_group">
   <button class="button1" bindtap="purchase1">买入</button>
-  <button class="button1" type="warn" bindtap="purchase2">定投</button>
+  <button class="button2" type="warn" bindtap="purchase2">定投</button>
 </cover-view>

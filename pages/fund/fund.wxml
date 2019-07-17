@@ -18,7 +18,7 @@
     </view>
     <view class="myinfo_sub">
       <view class="text1">累计收益</view>
-      <view wx:if="{{ canSee }}" class="text3">{{ accu_revenue }}</view>
+      <view wx:if="{{ canSee }}" class="text3">{{ accu_revenue }}元</view>
       <view wx:else class="text3">****</view>
       <view wx:if="{{ canSee }}" class="text3">{{ accu_ration }}%</view>
       <view wx:else class="text3">****</view>
@@ -42,21 +42,21 @@
   <view class="fund_details">
     <view class="fund_details_block">
       <view class="text6">持有金额</view>
-      <view class="text7">+1289.67元</view>
+      <view class="text7">{{ holdAmount }}元</view>
     </view>
     <view>
       <view class="text6">占比</view>
-      <view class="text7">100.00%</view>
+      <view class="text7">{{ ration }}%</view>
     </view>
   </view>
   <view class="fund_details">
     <view class="fund_details_block">
       <view class="text6">最新收益</view>
-      <view class="text7">+1289.67元</view>
+      <view class="text7">{{ latest_revenue }}元</view>
     </view>
     <view>
       <view class="text6">累计收益</view>
-      <view class="text7">+1289.67元</view>
+      <view class="text7">{{ accu_revenue }}元</view>
     </view>
   </view>
 </view>

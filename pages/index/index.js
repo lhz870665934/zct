@@ -23,6 +23,8 @@ Page({
     latest_ration: "--",
     accu_revenue: "--",
     accu_ration: "--",
+    trading_num: 0,
+
     recommend_list: [
       {
         data_type: 0,
@@ -132,6 +134,21 @@ Page({
             })
 
             wx.request({
+              url: app.globalData.request_address + "/invest/trade/record/count/doing/" + app.globalData.openid,
+              method: "GET",
+              data: {},
+              success (res) {
+                console.log(res.data)
+                that.setData({
+                  trading_num: res.data.data
+                })
+              },
+              fail (res) {
+                console.log("fail")
+              }
+            })
+
+            wx.request({
               url: app.globalData.request_address + "/invest/login/first/" + app.globalData.openid,
               method: "GET",
               data: {},
@@ -238,7 +255,6 @@ Page({
   },
 
   onShow: function () {
-    console.log("a")
     var that = this;
     if (app.globalData.userInfo) {
       this.setData({

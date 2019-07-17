@@ -1,18 +1,24 @@
 // pages/fund/fund.js
+
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    total_asset: 105000.56,
-    latest_revenue: "+1289.67",
-    latest_ration: 5.89,
-    accu_revenue: "+1289.67",
-    accu_ration: 5.89,
+    total_asset: "--",
+    latest_revenue: "--",
+    latest_ration: "--",
+    accu_revenue: "--",
+    accu_ration: "--",
 
     canSee: true,
     canSeePath: "../../img/icon_see.png",
+
+    holdAmount: "--",
+    ration: "--"
   },
 
   changeSee: function () {
@@ -39,7 +45,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -53,7 +59,62 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.request_address + "/invest/login/first/" + app.globalData.openid,
+      method: "GET",
+      data: {},
+      success(res) {
+        //console.log(res.data)
+        if (res.data.data == true) {
+          //console.log("true")
+          that.setData({
+            total_asset: "--",
+            latest_revenue: "--",
+            latest_ration: "--",
+            accu_revenue: "--",
+            accu_ration: "--",
+            holdAmount: "--",
+            ration: "--"
+          })
+        }
+        else {
+          console.log("false")
+          wx.request({
+            url: app.globalData.request_address + "/invest/user/product/info/" + app.globalData.openid,
+            method: "GET",
+            data: {},
+            success(res) {
+              console.log(res.data)
+              var latest_revenue_tmp = res.data.data.userAsset.latestRevenue
+              var latest_revenue_string = latest_revenue_tmp >= 0 ? "+" + latest_revenue_tmp : "-" + latest_revenue_tmp
 
+              var accu_revenue_tmp = res.data.data.userAsset.accuRevenue
+              var accu_revenue_string = accu_revenue_tmp >= 0 ? "+" + accu_revenue_tmp : "-" + accu_revenue_tmp
+
+              var holdAmount_tmp = res.data.data.userAsset.userAssetDetails.holdAmount
+              var holdAmount_string = holdAmount_tmp >= 0 ? "+" + holdAmount_tmp : "-" + holdAmount_tmp
+
+              that.setData({
+                total_asset: res.data.data.userAsset.totalAsset,
+                latest_revenue: latest_revenue_string,
+                latest_ration: res.data.data.userAsset.latestRation,
+                accu_revenue: accu_revenue_string,
+                accu_ration: res.data.data.userAsset.accuRation,
+                holdAmount: holdAmount_string,
+                ration: res.data.data.userAsset.userAssetDetails.ration * 100.0
+              })
+            },
+            fail(res) {
+              console.log("fail!")
+            }
+          })
+        }
+      },
+      fail(res) {
+        console.log("fail!")
+      }
+    })
   },
 
   /**

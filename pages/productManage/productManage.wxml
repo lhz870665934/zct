@@ -20,7 +20,7 @@
     </view>
     <view class="myinfo_sub">
       <view class="text1">累计收益</view>
-      <view wx:if="{{ canSee }}" class="text3">{{ accu_revenue }}</view>
+      <view wx:if="{{ canSee }}" class="text3">{{ accu_revenue }}元</view>
       <view wx:else class="text3">****</view>
       <view wx:if="{{ canSee }}" class="text3">{{ accu_ration }}%</view>
       <view wx:else class="text3">****</view>
@@ -46,6 +46,27 @@
   <view class="text4">交易记录</view>
 </view>
 <view class="divLine"></view>
-<view class="record" wx:for="{{ trade_record_list }}" wx:key>
-  <view class="text6"></view>
+<view class="record" wx:for="{{ trade_record_list_show }}" wx:key>
+  <view class="text6">{{ item.style }}</view>
+  <view class="trade_record_list_sub">
+    <view class="text7">{{ item.status }}</view>
+    <view class="text8" style="color:{{ item.color }}">{{ item.amount }}</view>
+  </view>
+  <view class="divLine_2"></view>
 </view>
+<view class="more_info_container" bindtap="toMore">
+  <view class="text9">查看历史交易记录 ></view>
+</view>
+
+<view class="setting_title">
+  <view class="text4">资产成分</view>
+</view>
+<view class="divLine"></view>
+<view class="pie-container">
+  <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec_pie }}"></ec-canvas>
+</view>
+
+<cover-view class="button_group">
+  <button class="button1" bindtap="purchase1">取现</button>
+  <button class="button2" type="warn" bindtap="purchase2">买入/定投</button>
+</cover-view>

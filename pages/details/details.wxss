@@ -203,7 +203,7 @@ ec-canvas {
 .button1 {
   width: 50%;
   color: red;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .button2 {
