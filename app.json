@@ -12,7 +12,8 @@
     "pages/productManage/productManage",
     "pages/settings/settings",
     "pages/records/records",
-    "pages/sell/sell"
+    "pages/sell/sell",
+    "pages/sellSuccess/sellSuccess"
   ],
   "window": {
     "navigationStyle": "default",
