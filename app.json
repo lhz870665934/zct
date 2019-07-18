@@ -11,7 +11,8 @@
     "pages/fund/fund",
     "pages/productManage/productManage",
     "pages/settings/settings",
-    "pages/records/records"
+    "pages/records/records",
+    "pages/sell/sell"
   ],
   "window": {
     "navigationStyle": "default",

@@ -229,11 +229,13 @@ Page({
   },
 
   purchase1: function () {
+    app.globalData.back_methods = 0;
     app.globalData.purchase = 0;
     this.toExamination();
   },
 
   purchase2: function () {
+    app.globalData.back_methods = 0;
     app.globalData.purchase = 1;
     this.toExamination();
   },

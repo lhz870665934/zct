@@ -97,9 +97,19 @@ Page({
       },
       success(res) {
         console.log(res.data)
+        wx.showToast({
+          title: "修改成功!",
+          icon: "success"
+        })
+        wx.navigateBack({
+        
+        })
       },
       fail(res) {
         console.log("fail!")
+        wx.navigateBack({
+
+        })
       }
     })
   },
@@ -120,9 +130,19 @@ Page({
       },
       success(res) {
         console.log(res.data)
+        wx.showToast({
+          title: "停止成功!",
+          icon: "success"
+        })
+        wx.navigateBack({
+
+        })
       },
       fail(res) {
         console.log("fail!")
+        wx.navigateBack({
+
+        })
       }
     })
   },

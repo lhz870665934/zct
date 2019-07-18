@@ -1,0 +1,37 @@
+<!--pages/sell/sell.wxml-->
+<view class="title_container">
+  <view class="text_title">中国建设银行(5334)</view>
+  <view>
+    <image class="icon_arrow" src="../../img/icon_arrow.png"></image>
+  </view>
+</view>
+
+<view class="amount-container">
+  <view class="amount-title">
+    <view class="text1">转出金额（元）</view>
+  </view>
+  <view class="amount-input">
+    <view class="text3">￥</view>
+    <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue" value="{{ amount }}"></input>
+    <image class="icon_delete" src="../../img/icon_delete.png" bindtap="clear"></image>
+    <view class="text_all" bindtap="setAll">全部</view>
+  </view>
+  <view class="inputUnderline"></view>
+  <view wx:if="{{ isOverflow }}" class="text4">输入金额超过零钱余额</view>
+</view>
+
+<view class="style_title_container">
+  <view class="text5">转出方式</view>
+  <view class="text6">交易规则</view>
+</view>
+
+<view class="divLine"></view>
+
+<view class="checkedbox_container">
+  <radio checked="true">快速到账</radio>
+  <view class="text7">预计{{ finalDate }}到账，无限额，{{ today }} - {{ finalDay }}仍有收益</view>
+</view>
+
+<view class="confirm_button_container">
+  <button class="confirm_button" type="warn" bindtap="confirm" disabled="{{ isOverflow || amount == mull }}">确认卖出</button>
+</view>

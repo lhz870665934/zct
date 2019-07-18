@@ -106,9 +106,16 @@ Page({
             title: "买入成功！",
             icon: "success"
           })
-          wx.reLaunch({
-            url: "../index/index"
-          })
+          if (app.globalData.back_methods == 0) {
+            wx.reLaunch({
+              url: "../index/index"
+            })
+          }
+          else {
+            wx.navigateBack({
+
+            })
+          } 
         },
         fail(res) {
           console.log("fail!")
@@ -136,9 +143,16 @@ Page({
             title: "定投成功！",
             icon: "success"
           })
-          wx.reLaunch({
-            url: "../index/index"
-          })
+          if (app.globalData.back_methods == 0) {
+            wx.reLaunch({
+              url: "../index/index"
+            })
+          }
+          else {
+            wx.navigateBack({
+              
+            })
+          } 
         },
         fail(res) {
           console.log("fail!")
@@ -170,6 +184,11 @@ Page({
     this.setData({
       activeIndex: app.globalData.purchase
     })
+    if (this.data.activeIndex == null) {
+      this.setData({
+        activeIndex: 1
+      })
+    }
     wx.getSystemInfo({
       success: function (res) {
         that.setData({

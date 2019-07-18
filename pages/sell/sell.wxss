@@ -1,0 +1,137 @@
+/* pages/sell/sell.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #F8F8F8;
+}
+
+.title_container {
+  background: white;
+  padding: 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text_title {
+  font-size: 16px;
+  color: #363636;
+  font-weight: Medium;
+}
+
+.icon_arrow {
+  width: 9px;
+  height: 17px;
+}
+
+.text1 {
+  font-size: 18px;
+  font-weight: Medium;
+  color: #363636;
+}
+
+.amount-container {
+  background-color: #FFFFFF;
+  margin-top: 5%;
+  padding: 4%;
+}
+
+.amount-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount-input {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.text3 {
+  font-size: 32px;
+  font-weight: Medium;
+  color: #363636;
+}
+
+.input {
+  margin-left: 2%;
+}
+
+.inputUnderline {
+  background: #CCCCCC;
+  height: 1px;
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+.text4 {
+  font-size: 14px;
+  font-weight: Regular;
+  color: #EF3E44;
+}
+
+.icon_delete {
+  margin-left: 18%;
+  width: 14px;
+  height: 15px;
+}
+
+.text_all {
+  margin-left: 4%;
+  font-size: 18px;
+  font-weight: Regular;
+  color: #2874F4;
+}
+
+.style_title_container {
+  margin-top: 5%;
+  padding: 4%;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text5 {
+  font-size: 18px;
+  font-weight: Bold;
+  color: #363636;
+}
+
+.text6 {
+  font-size: 14px;
+  font-weight: Regular;
+  color: #2874F4;
+}
+
+.divLine {
+  background: #EEEEEE;
+  height: 1px;
+  width: 100%;
+}
+
+.checkedbox_container {
+  padding: 4%;
+  background: white;
+}
+
+.text7 {
+  margin-top: 3%;
+  margin-left: 8%;
+  font-size: 14px;
+  font-weight: Regular;
+  color: #787878;
+}
+
+.confirm_button_container {
+  padding: 5%;
+  margin-top: 10%;
+}
+
+.confirm_button {
+  width: 100%;
+}

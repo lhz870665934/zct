@@ -44,7 +44,7 @@
                 <view class="weui-agree__checkbox-icon">
                   <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
                 </view>
-                已阅读并同意<navigator url="" class="weui-agree__link">《xxxxx协议》</navigator>
+                已阅读并同意<navigator url="" class="weui-agree__link">《投资者协议》</navigator>
               </view>
             </label>
           </checkbox-group>
@@ -64,7 +64,7 @@
           </view>
           <view class="amount-input">
             <view class="text3">￥</view>
-            <input class="input" placeholder="最低定投金额1.00元" type="digit" bindinput="bindAmountValue"></input>
+            <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue"></input>
           </view>
           <view class="inputUnderline"></view>
           <view class="text4">预计第二日产生收益</view>
@@ -96,7 +96,7 @@
                 <view class="weui-agree__checkbox-icon">
                   <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
                 </view>
-                已阅读并同意<navigator url="" class="weui-agree__link">《xxxxx协议》</navigator>
+                已阅读并同意<navigator url="" class="weui-agree__link">《投资者协议》</navigator>
               </view>
             </label>
           </checkbox-group>
