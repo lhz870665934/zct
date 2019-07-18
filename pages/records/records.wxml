@@ -1,0 +1,23 @@
+<!--pages/records/records.wxml-->
+<view class="title_container">
+  <view class="text_title">红棉货币基金</view>
+</view>
+
+<view class="records_title">
+  <view class="records_title_text">交易记录</view>
+</view>
+
+<view class="divLine"></view>
+
+<view class="record" wx:for="{{ trade_record_list_show }}" wx:key>
+  <view class="text1">{{ item.style }}</view>
+  <view class="trade_record_list_sub">
+    <view class="text2">{{ item.status }}</view>
+    <view class="text3" style="color:{{ item.color }}">{{ item.amount }}</view>
+  </view>
+  <view class="divLine_1"></view>
+</view>
+
+<view class="back_button_container">
+  <button class="back_button" type="warn" bindtap="back">返回</button>
+</view>

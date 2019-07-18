@@ -9,7 +9,9 @@
     "pages/purchase/purchase",
     "pages/details/details",
     "pages/fund/fund",
-    "pages/productManage/productManage"
+    "pages/productManage/productManage",
+    "pages/settings/settings",
+    "pages/records/records"
   ],
   "window": {
     "navigationStyle": "default",

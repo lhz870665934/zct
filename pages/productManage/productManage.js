@@ -99,14 +99,16 @@ Page({
     },
   },
   
-
   setting_click: function (e) {
     console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: "../settings/settings?id=" + e.currentTarget.dataset.id,
+    })
   },
 
   toMore: function (e) {
     wx.navigateTo({
-      url: "../",
+      url: "../records/records",
     })
   },
 
@@ -121,9 +123,9 @@ Page({
       data: {},
       success(res) {
         console.log(res.data)
-        var tmp_list = that.data.trade_record_list_show;
+        var tmp_list = [];
         for (var i = 0; i < res.data.data.content.length; i++) {
-          var tmp = {style: "", status: "", amount: "", color: ""};
+          var tmp = { style: "", status: "", amount: "", color: "" };
           var type = res.data.data.content[i].type;
           if (type == 5) {
             //tmp_list[i].style = "提现";
@@ -196,42 +198,6 @@ Page({
         console.log("fail")
       }
     })
-    wx.request({
-      url: app.globalData.request_address + "/invest/user/product/settings/" + app.globalData.openid + "/1",
-      method: "GET",
-      data: {},
-      success (res) {
-        var setting_tmp_list = that.data.settting_list;
-        for (var i = 0; i < res.data.data.length; i++) {
-          var cycle = res.data.data[i].cycle;
-          var amount = res.data.data[i].amount;
-          var cycle_string;
-          var setting_tmp = { setting_id: "", style: "" }
-          if (cycle == 1) {
-            cycle_string = "每周"
-          }
-          else if (cycle == 2) {
-            cycle_string = "每月"
-          }
-          else if (cycle == 3) {
-            cycle_string = "每两周"
-          }
-          else if (cycle == 4) {
-            cycle_string = "每天"
-          }
-          setting_tmp.setting_id = res.data.data[i].id
-          setting_tmp.style = cycle_string + "定投" + amount + "元"
-          setting_tmp_list.push(setting_tmp)
-        }
-        console.log(setting_tmp_list)
-        that.setData({
-          settting_list: setting_tmp_list
-        })
-      },
-      fail (res) {
-        console.log("fail")
-      }
-    })
   },
 
   /**
@@ -246,6 +212,8 @@ Page({
    */
   onShow: function () {
     var that = this;
+    this.data.settting_list.length = 0;
+    this.data.trade_record_list_show.length = 0;
     wx.request({
       url: app.globalData.request_address + "/invest/login/first/" + app.globalData.openid,
       method: "GET",
@@ -292,6 +260,43 @@ Page({
       },
       fail(res) {
         console.log("fail!")
+      }
+    })
+    
+    wx.request({
+      url: app.globalData.request_address + "/invest/user/product/settings/" + app.globalData.openid + "/1",
+      method: "GET",
+      data: {},
+      success(res) {
+        var setting_tmp_list = that.data.settting_list;
+        for (var i = 0; i < res.data.data.length; i++) {
+          var cycle = res.data.data[i].cycle;
+          var amount = res.data.data[i].amount;
+          var cycle_string;
+          var setting_tmp = { setting_id: "", style: "" }
+          if (cycle == 1) {
+            cycle_string = "每周"
+          }
+          else if (cycle == 2) {
+            cycle_string = "每月"
+          }
+          else if (cycle == 3) {
+            cycle_string = "每两周"
+          }
+          else if (cycle == 4) {
+            cycle_string = "每天"
+          }
+          setting_tmp.setting_id = res.data.data[i].id
+          setting_tmp.style = cycle_string + "定投" + amount + "元"
+          setting_tmp_list.push(setting_tmp)
+        }
+        console.log(setting_tmp_list)
+        that.setData({
+          settting_list: setting_tmp_list
+        })
+      },
+      fail(res) {
+        console.log("fail")
       }
     })
   },

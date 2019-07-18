@@ -1,0 +1,52 @@
+<!--pages/settings/settings.wxml-->
+<view class="product-container">
+  <view class="text1">{{ product_name }}</view>
+</view>
+<view class="amount-container">
+  <view class="amount-title">
+    <view class="text1">定投金额（元）</view>
+    <view class="text2">交易规则</view>
+  </view>
+  <view class="amount-input">
+    <view class="text3">￥</view>
+    <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue"></input>
+  </view>
+  <view class="inputUnderline"></view>
+  <view class="text4">买入费率：0.00%</view>
+</view>
+<view class="paymentStyle-container">
+  <view class="text5">付款方式</view>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{ multiIndex_style }}" range="{{ multiArray_style }}">
+      <view class="weui-select">
+        <view class="text-box">
+          <view class="text6">{{ multiArray_style[0][multiIndex_style[0]] }}</view>
+          <view class="text7">最多支付{{ multiArray_style[1][multiIndex_style[1]] }}元</view>
+        </view>
+      </view>
+    </picker> 
+</view>
+<view class="investStyle-container">
+  <view class="text5">定投方式</view>
+  <view class="investStyle-right">
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{ multiIndex }}" range="{{ multiArray }}">
+      <view class="weui-select">{{ multiArray[0][multiIndex[0]] }}{{ multiArray[1][multiIndex[1]] }}</view>
+    </picker>
+  </view>
+</view>
+<view class="agree">
+  <checkbox-group bindchange="bindAgreeChange">
+    <label class="weui-agree" for="weuiAgree">
+      <view class="weui-agree__text">
+        <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+        <view class="weui-agree__checkbox-icon">
+          <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+        </view>
+        已阅读并同意<navigator url="" class="weui-agree__link">《xxxxx协议》</navigator>
+      </view>
+    </label>
+  </checkbox-group>
+</view>
+<view class="confirm-button-container">
+  <button class="confirm_button" type="warn" bindtap="confirm" disabled="{{ confirm_disabled }}">保存</button>
+  <view class="stop_button" bindtap="stop">终止定投</view>
+</view>

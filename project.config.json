@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -103,6 +103,20 @@
 					"id": -1,
 					"name": "productManage",
 					"pathName": "pages/productManage/productManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "settings",
+					"pathName": "pages/settings/settings",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "records",
+					"pathName": "pages/records/records",
 					"scene": null
 				}
 			]

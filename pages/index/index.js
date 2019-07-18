@@ -134,21 +134,6 @@ Page({
             })
 
             wx.request({
-              url: app.globalData.request_address + "/invest/trade/record/count/doing/" + app.globalData.openid,
-              method: "GET",
-              data: {},
-              success (res) {
-                console.log(res.data)
-                that.setData({
-                  trading_num: res.data.data
-                })
-              },
-              fail (res) {
-                console.log("fail")
-              }
-            })
-
-            wx.request({
               url: app.globalData.request_address + "/invest/login/first/" + app.globalData.openid,
               method: "GET",
               data: {},
@@ -166,6 +151,20 @@ Page({
                 }
                 else {
                   console.log("false")
+                  wx.request({
+                    url: app.globalData.request_address + "/invest/trade/record/count/doing/" + app.globalData.openid,
+                    method: "GET",
+                    data: {},
+                    success(res) {
+                      console.log(res.data)
+                      that.setData({
+                        trading_num: res.data.data
+                      })
+                    },
+                    fail(res) {
+                      console.log("fail")
+                    }
+                  })
                   wx.request({
                     url: app.globalData.request_address + "/invest/user/product/info/" + app.globalData.openid,
                     method: "GET",

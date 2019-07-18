@@ -20,7 +20,7 @@
           </view>
           <view class="amount-input">
             <view class="text3">￥</view>
-            <input class="input" placeholder="最低定投金额1.00元" type="digit" bindinput="bindAmountValue"></input>
+            <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue"></input>
           </view>
           <view class="inputUnderline"></view>
           <view class="text4">预计第二日产生收益</view>

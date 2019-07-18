@@ -1,0 +1,85 @@
+/* pages/records/records.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #F8F8F8;
+}
+
+.title_container {
+  display: flex;
+  justify-content: center;
+  background-color: #FFFFFF;
+  padding: 5%;
+}
+
+.text_title {
+  font-size: 24px;
+  color: #000000;
+  font-weight: R;
+}
+
+.records_title {
+  background-color: #FFFFFF;
+  padding: 5%;
+}
+
+.records_title_text {
+  font-size: 18px;
+  color: #363636;
+  font-weight: Bold;
+}
+
+.divLine {
+  background: #EEEEEE;
+  height: 1px;
+  width: 100%;
+}
+
+.record {
+  display: flex;
+  flex-direction: column;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 2%;
+  background: white;
+}
+
+.text1 {
+  font-size: 16px;
+  color: #363636;
+  font-weight: Regular;
+}
+
+.trade_record_list_sub {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.text2 {
+  font-size: 14px;
+  color: #787878;
+  font-weight: Regular;
+}
+
+.text3 {
+  font-size: 16px;
+  font-weight: Regular;
+}
+
+.divLine_1 {
+  margin-top: 2%;
+  background: #EEEEEE;
+  height: 1px;
+  width: 100%;
+}
+
+.back_button_container {
+  padding: 5%;
+  margin-top: 10%;
+}
+
+.back_button {
+  width: 100%;
+}

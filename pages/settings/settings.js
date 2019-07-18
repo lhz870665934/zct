@@ -1,7 +1,6 @@
-// pages/purchase/purchase.js
-var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
+// pages/settings/settings.js
 
-var app = getApp();
+const app = getApp();
 
 Page({
 
@@ -9,11 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: ["买入", "定投"],
-    activeIndex: 0,
-    sliderOffset: 0,
-    sliderLeft: 0,
-    product_name: "易达方上证50指数C产品名",
+    setting_id: 0,
+
+    product_name: "红棉货币定投",
     amount: 0.0,
     bank_name: "中国建设银行",
     bank_id: 5334,
@@ -72,7 +69,7 @@ Page({
             data.multiArray[1] = [];
             break;
         }
-      break;
+        break;
     }
     this.setData(data);
   },
@@ -85,74 +82,57 @@ Page({
   },
 
   confirm: function (e) {
-    if (this.data.activeIndex == 0) {
-      console.log(0)
-      wx.request({
-        url: app.globalData.request_address + "/invest/trade/buy",
-        method: "POST",
-        data:
-        {
-          "openId": app.globalData.openid,
-          "productId": 1,
-          "amount": this.data.amount * 1.0,
-          "cardNumber": "123456789123456789",
-          "cycle": "1",
-          "frequency": "1",
-          "type": 8
-        },
-        success(res) {
-          console.log(res.data)
-          wx.showToast({
-            title: "买入成功！",
-            icon: "success"
-          })
-          wx.reLaunch({
-            url: "../index/index"
-          })
-        },
-        fail(res) {
-          console.log("fail!")
-        }
-      })
-    }
-    else {
-      console.log(1)
-      wx.request({
-        url: app.globalData.request_address + "/invest/trade/buy",
-        method: "POST",
-        data:
-        {
-          "openId": app.globalData.openid,
-          "productId": 1,
-          "amount": this.data.amount * 1.0,
-          "cardNumber": "123456789123456789",
-          "cycle": this.data.multiIndex[0] + 1,
-          "frequency": this.data.multiIndex[1] + 1,
-          "type": 9
-        },
-        success(res) {
-          console.log(res.data)
-          wx.showToast({
-            title: "定投成功！",
-            icon: "success"
-          })
-          wx.reLaunch({
-            url: "../index/index"
-          })
-        },
-        fail(res) {
-          console.log("fail!")
-        }
-      })
-    }
+    wx.request({
+      url: app.globalData.request_address + "/invest/user/product/setting/" + this.data.setting_id,
+      method: "PUT",
+      data:
+      {
+        "openId": app.globalData.openid,
+        "productId": 1,
+        "amount": this.data.amount,
+        "cardNumber": "123456789123456789",
+        "cycle": this.data.multiIndex[0] + 1,
+        "frequency": this.data.multiIndex[1] + 1,
+        "type": 9
+      },
+      success(res) {
+        console.log(res.data)
+      },
+      fail(res) {
+        console.log("fail!")
+      }
+    })
+  },
+
+  stop: function (e) {
+    wx.request({
+      url: app.globalData.request_address + "/invest/user/product/setting/" + this.data.setting_id,
+      method: "PUT",
+      data:
+      {
+        "openId": app.globalData.openid,
+        "productId": 1,
+        "amount": 0,
+        "cardNumber": "123456789123456789",
+        "cycle": this.data.multiIndex[0] + 1,
+        "frequency": this.data.multiIndex[1] + 1,
+        "type": 9
+      },
+      success(res) {
+        console.log(res.data)
+      },
+      fail(res) {
+        console.log("fail!")
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    
+    this.data.setting_id = options.id;
+    var that = this;
   },
 
   /**
@@ -166,18 +146,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    this.setData({
-      activeIndex: app.globalData.purchase
-    })
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
-          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
-        });
-      }
-    });
+
   },
 
   /**
