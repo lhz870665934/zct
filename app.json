@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/authorize/authorize",
     "pages/index/index",
     "pages/echarts/echarts",
     "pages/pie/pie",
@@ -15,6 +16,7 @@
     "pages/sellSuccess/sellSuccess",
     "pages/introduction/introduction",
     "pages/personal_info/personal_info"
+    
   ],
   "window": {
     "navigationStyle": "default",
