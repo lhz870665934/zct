@@ -267,7 +267,7 @@ Page({
             tmp.status = "支付失败，余额不足";
           }
           else if (status == 1) {
-            var sjc = res.data.data.content[i].createTime + 86400;
+            var sjc = res.data.data.content[i].settings.nextInvestTime;
             if (type == 5) { //取现
               //tmp_list[i].status = "进行中，预计" + time.formatTime(sjc, 'Y年M月D日') + "到账";
               tmp.status = "进行中，预计" + time.formatTime(sjc, 'Y年M月D日') + "到账";

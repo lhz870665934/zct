@@ -115,7 +115,7 @@ Page({
       return
     }
     wx.navigateTo({
-      url: '../details/details',
+      url: '../introduction/introduction',
     })
   },
 
@@ -123,6 +123,7 @@ Page({
     var that = this;
     wx.login({
       success: res => {
+        console.log("wechatLogin")
         wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx35974e912b5ddd37&secret=d749ebb07764b7eaea3d11f6e2c06740&js_code=' + res.code + '&grant_type=authorization_code',
           method: 'GET',
@@ -150,7 +151,7 @@ Page({
                   })
                 }
                 else {
-                  console.log("false")
+                  // console.log("false")
                   wx.request({
                     url: app.globalData.request_address + "/invest/trade/record/count/doing/" + app.globalData.openid,
                     method: "GET",

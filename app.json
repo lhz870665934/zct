@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/echarts/echarts",
     "pages/pie/pie",
     "pages/examination/examination",
@@ -13,7 +12,8 @@
     "pages/settings/settings",
     "pages/records/records",
     "pages/sell/sell",
-    "pages/sellSuccess/sellSuccess"
+    "pages/sellSuccess/sellSuccess",
+    "pages/introduction/introduction"
   ],
   "window": {
     "navigationStyle": "default",

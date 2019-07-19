@@ -107,8 +107,9 @@ Page({
             icon: "success"
           })
           if (app.globalData.back_methods == 0) {
+            app.globalData.toManage = 1
             wx.reLaunch({
-              url: "../index/index"
+              url: "../fund/fund"
             })
           }
           else {
@@ -144,8 +145,9 @@ Page({
             icon: "success"
           })
           if (app.globalData.back_methods == 0) {
+            app.globalData.toManage = 1
             wx.reLaunch({
-              url: "../index/index"
+              url: "../fund/fund"
             })
           }
           else {
