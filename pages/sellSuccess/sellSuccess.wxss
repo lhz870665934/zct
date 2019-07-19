@@ -21,3 +21,9 @@ page {
   margin-top: 20%;
   width: 90%;
 }
+
+.icon_finish {
+  margin-top: 10%;
+  width: 99px;
+  height: 100px;
+}

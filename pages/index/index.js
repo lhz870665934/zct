@@ -171,8 +171,12 @@ Page({
                     data: {},
                     success(res) {
                       console.log(res.data)
+                      app.globalData.total_asset = res.data.data.userAsset.totalAsset;
+
                       var latest_revenue_string = res.data.data.userAsset.latestRevenue >= 0 ? "+" + res.data.data.userAsset.latestRevenue : "-" + res.data.data.userAsset.latestRevenue
+
                       var accu_revenue_string = res.data.data.userAsset.accuRevenue >= 0 ? "+" + res.data.data.userAsset.accuRevenue : "-" + res.data.data.userAsset.accuRevenue
+
                       that.setData({
                         total_asset: res.data.data.userAsset.totalAsset,
                         latest_revenue: latest_revenue_string,

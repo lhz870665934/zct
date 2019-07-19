@@ -34,13 +34,13 @@
       {
         "pagePath": "pages/fund/fund",
         "iconPath": "img/bar_icon_assets_nor.png",
-        "selectedIconPath": "img/bar_icon_home_nor.png",
+        "selectedIconPath": "img/bar_icon_assets.png",
         "text": "资产"
       },
       {
         "pagePath": "pages/index/index",
         "iconPath": "img/bar_icon_my_nor.png",
-        "selectedIconPath": "img/bar_icon_home_nor.png",
+        "selectedIconPath": "img/bar_icon_my.png",
         "text": "我的"
       }
     ]

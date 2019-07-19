@@ -51,6 +51,7 @@ App({
     openid: null,
     purchase: null,
     request_address: "http://10.1.253.12:8081",
-    back_methods: 0
+    back_methods: 0,
+    total_asset: 0
   }
 })

@@ -1,11 +1,14 @@
 // pages/sell/sell.js
+
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    all_amount: 998,
+    all_amount: 0,
     amount: null,
     isOverflow: false,
     finalDate: "7月27日(三日后)23:59",
@@ -43,8 +46,19 @@ Page({
   },
 
   confirm: function () {
-    wx.navigateTo({
-      url: "../sellSuccess/sellSuccess",
+    wx.request({
+      url: app.globalData.request_address + "/invest/trade/sale/" + app.globalData.openid + "/1/" + this.data.amount,
+      method: "POST",
+      data: {},
+      success(res) {
+        console.log(res.data)
+        wx.navigateTo({
+          url: "../sellSuccess/sellSuccess",
+        })
+      },
+      fail(res) {
+        console.log("fail")
+      }
     })
   },
 
@@ -52,7 +66,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      all_amount: app.globalData.total_asset
+    })
   },
 
   /**

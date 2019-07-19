@@ -1,5 +1,6 @@
 <!--pages/sellSuccess/sellSuccess.wxml-->
 <view class="page_container">
+  <image class="icon_finish" src="../../img/icon_finish.png"></image>
   <view class="text">申请成功</view>
   <button class="finish_button" type="warn" bindtap="finish">完成</button>
 </view>
