@@ -339,6 +339,8 @@ Page({
 
         console.log(app.globalData)
 
+        console.log(rank)
+
         wx.request({
           url: app.globalData.request_address + "/invest/login/",
           method: "POST",
@@ -348,15 +350,23 @@ Page({
             "name": app.globalData.userInfo.nickName,
             "phone": "13791379137",
             "creditCard": "123456789123456789",
-            "realName": "符嘉阳",
-            "idNumble": "440106199506066666",
+            "realName": "张蕴慧",
+            "idNumble": "440106200208025311",
             "rank": rank
           },
           success(res) {
             console.log(res.data)
-            wx.navigateTo({
-              url: '../purchase/purchase',
-            })
+            if (app.globalData.examination_back == 0) {
+              wx.navigateTo({
+                url: '../purchase/purchase',
+              })
+            }
+            else {
+              wx.navigateBack({
+                
+              })
+            }
+            
           },
           fail(res) {
             console.log("fail!")

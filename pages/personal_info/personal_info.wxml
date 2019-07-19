@@ -1,0 +1,48 @@
+<!--pages/personal_info/personal_info.wxml-->
+<view class="pf_part1">
+  <image bindtap="bindViewTap" class="person_image" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+  <view class="name_container">
+    <view class="person_name">{{ userInfo.nickName }}</view>
+  </view>
+</view>
+
+<view class="container1">
+  <view class="text1">银行卡信息</view>
+</view>
+
+<view class="container2">
+  <view class="text3">真实姓名</view>
+  <view class="text4">{{ real_name }}</view>
+</view>
+  <view class="diviline_container">
+    <view class="diviline"></view>
+  </view>
+<view class="container2">
+  <view class="text3">证件类型</view>
+  <view class="text4">身份证</view>
+</view>
+<view class="diviline_container">
+  <view class="diviline"></view>
+</view>
+<view class="container2">
+  <view class="text3">证件号</view>
+  <view class="text4">{{ id_number }}</view>
+</view>
+<view class="diviline_container">
+  <view class="diviline"></view>
+</view>
+<view class="container2">
+  <view class="text3">银行卡</view>
+  <view class="text4">广州银行 {{ credit_card }}</view>
+</view>
+
+<view class="container1">
+  <view class="text1">投资信息</view>
+</view>
+<view class="container2" bindtap="toExamination">
+  <view class="text3">投资风险类型</view>
+  <view class="container3">
+    <view class="text3">{{ risk_level }}</view>
+    <image class="icon_image" src="../../img/icon_arrow.png"></image>
+  </view>
+</view>

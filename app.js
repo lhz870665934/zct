@@ -6,6 +6,10 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    wx.login({
+      
+    })
+
     // 登录
     // wx.login({
     //   success: res => {
@@ -50,9 +54,10 @@ App({
     userInfo: null,
     openid: null,
     purchase: null,
-    request_address: "http://10.1.253.12:8081",
+    request_address: "https://cotton.fjy8018.xin",
     back_methods: 0,
     total_asset: 0,
-    toManage: 0
+    toManage: 0,
+    examination_back: 0
   }
 })

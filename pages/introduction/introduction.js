@@ -19,10 +19,30 @@ Page({
   },
 
   purchase2: function () {
-    app.globalData.back_methods = 0;
-    app.globalData.purchase = 0;
-    wx.navigateTo({
-      url: "../purchase/purchase",
+    this.toExamination();
+  },
+
+  toExamination: function () {
+    wx.request({
+      url: app.globalData.request_address + "/invest/login/first/" + app.globalData.openid,
+      method: "GET",
+      data: {},
+      success(res) {
+        console.log(res.data.data)
+        if (res.data.data == true) {
+          app.globalData.back_methods = 0;
+          app.globalData.purchase = 0;
+          app.globalData.examination_back = 0;
+          wx.navigateTo({
+            url: '../examination/examination'
+          })
+        }
+        else {
+          wx.navigateTo({
+            url: '../purchase/purchase'
+          })
+        }
+      }
     })
   },
 

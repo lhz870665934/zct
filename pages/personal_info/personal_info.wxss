@@ -1,0 +1,95 @@
+/* pages/personal_info/personal_info.wxss */
+page{
+  background-color: #F8F8F8;
+  height: 100%;
+  width: 100%;
+  }
+
+.pf_part1{
+  background-color: #FFFFFF;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.person_image{
+  /* width: 21%;
+  height: 80px;
+  margin-left: 39%;
+  margin-top: 8%; */
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.name_container{
+  width: 100%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+.person_name{
+  font-size: 16px;
+  color:rgb(23, 24, 24);
+  font-family:PingFang-SC-Regular;
+}
+.container1{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  height:7%;
+}
+.text1{
+  color:rgba(54,54,54,1);
+  font-size:18px;
+  font-family:PingFang-SC-Medium;
+  font-weight:Regular;
+  margin-left: 4.2%;
+}
+
+.container2{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  height:7%;
+}
+
+.text3{
+  color:rgba(120,120,120,1);
+  font-size:16px;
+  margin-left:4.2%;
+}
+.text4{
+  color:rgba(54,54,54,1);
+  font-size: 14px;
+  margin-right: 4.2%;
+}
+.divLine_container {
+  display: flex;
+  justify-content: center;
+}
+.diviline{
+  width: 92%;
+  height: 1px;
+  background:rgb(228, 227, 227);
+  margin-left: 4.2%;
+}
+.container3{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width:30%;
+  margin-right: 4.2%;
+
+}
+.icon_image{
+  width: 10px;
+  height: 10px;
+  margin-right: 4.2%;
+}

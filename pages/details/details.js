@@ -215,6 +215,7 @@ Page({
       success (res) {
         console.log(res.data.data)
         if (res.data.data == true) {
+          app.globalData.examination_back = 0;
           wx.navigateTo({
             url: '../examination/examination'
           })

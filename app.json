@@ -13,7 +13,8 @@
     "pages/records/records",
     "pages/sell/sell",
     "pages/sellSuccess/sellSuccess",
-    "pages/introduction/introduction"
+    "pages/introduction/introduction",
+    "pages/personal_info/personal_info"
   ],
   "window": {
     "navigationStyle": "default",
@@ -38,7 +39,7 @@
         "text": "资产"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/personal_info/personal_info",
         "iconPath": "img/bar_icon_my_nor.png",
         "selectedIconPath": "img/bar_icon_my.png",
         "text": "我的"

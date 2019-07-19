@@ -120,6 +120,10 @@ Page({
         },
         fail(res) {
           console.log("fail!")
+          wx.showToast({
+            title: "网络错误，请稍后再试！",
+            icon: "none"
+          })
         }
       })
     }
@@ -158,6 +162,10 @@ Page({
         },
         fail(res) {
           console.log("fail!")
+          wx.showToast({
+            title: "网络错误，请稍后再试！",
+            icon: "none"
+          })
         }
       })
     }

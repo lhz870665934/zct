@@ -1,5 +1,5 @@
 <!--pages/introduction/introduction.wxml-->
-<image class="introduction" src="../../img/introduction.png"></image>
+<image class="introduction" src="https://i.loli.net/2019/07/19/5d3176e2da4d546541.png"></image>
 <cover-view class="button_group">
   <button class="button1" bindtap="purchase1">产品详情</button>
   <button class="button2" type="warn" bindtap="purchase2">买入/定投</button>

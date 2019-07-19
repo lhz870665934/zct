@@ -132,6 +132,12 @@
 					"name": "sellSuccess",
 					"pathName": "pages/sellSuccess/sellSuccess",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "personal_info",
+					"pathName": "pages/personal_info/personal_info",
+					"scene": null
 				}
 			]
 		}
