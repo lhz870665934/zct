@@ -184,6 +184,8 @@ Page({
                 accu_revenue: accu_revenue_string,
                 accu_ration: res.data.data.userAsset.accuRation,
               })
+
+              app.globalData.total_asset = res.data.data.userAsset.totalAsset
             },
             fail(res) {
               console.log("fail!")
@@ -267,12 +269,14 @@ Page({
             tmp.status = "支付失败，余额不足";
           }
           else if (status == 1) {
-            var sjc = res.data.data.content[i].settings.nextInvestTime;
             if (type == 5) { //取现
+              var sjc2 = res.data.data.content[i].createTime;
               //tmp_list[i].status = "进行中，预计" + time.formatTime(sjc, 'Y年M月D日') + "到账";
-              tmp.status = "进行中，预计" + time.formatTime(sjc, 'Y年M月D日') + "到账";
+              //tmp.status = "进行中，预计" + time.formatTime(sjc, 'Y年M月D日') + "到账";
+              tmp.status = "进行中，预计" + time.formatTime(sjc2 + 24 * 60 * 60, 'Y年M月D日') + "到账";
             }
             else if (type == 9) { //定投
+              var sjc = res.data.data.content[i].settings.nextInvestTime;
               //tmp_list[i].status = "预计" + time.formatTime(sjc, 'Y年M月D日') + "完成定投";
               tmp.status = "预计" + time.formatTime(sjc, 'Y年M月D日') + "完成定投";
             }
