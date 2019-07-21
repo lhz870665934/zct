@@ -26,7 +26,8 @@ Page({
     multiIndex: [0, 0],
 
     isAgree: false,
-    confirm_disabled: true
+    confirm_disabled: true,
+    isEmpty: true
   },
 
   tabClick: function (e) {
@@ -36,10 +37,34 @@ Page({
     });
   },
 
+  judgeConfiemDisabled: function () {
+    if (this.data.isEmpty == false && this.data.isAgree == true) {
+      this.setData({
+        confirm_disabled: false,
+      });
+    }
+    else {
+      this.setData({
+        confirm_disabled: true,
+      });
+    }
+  },
+
   bindAmountValue: function (e) {
     this.setData({
       amount: e.detail.value
     })
+    if (e.detail.value == "") {
+      this.setData({
+        isEmpty: true
+      })
+    }
+    else {
+      this.setData({
+        isEmpty: false
+      })
+    }
+    this.judgeConfiemDisabled();
   },
 
   bindMultiPickerChange: function (e) {
@@ -80,8 +105,8 @@ Page({
   bindAgreeChange: function (e) {
     this.setData({
       isAgree: !!e.detail.value.length,
-      confirm_disabled: !e.detail.value.length
     });
+    this.judgeConfiemDisabled();
   },
 
   confirm: function (e) {

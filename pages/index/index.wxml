@@ -43,7 +43,7 @@
 </view>
 <view class="text6">为您推荐</view>
 <view class="recommend-function">
-  <view class="recommend-button" wx:for="{{ recommend_list }}" wx:key>
+  <view class="recommend-button" wx:for="{{ recommend_list }}" wx:key bindtap="{{ item.clickFunction }}">
     <view class="text-box">
       <view class="text7" style="color:{{ item.text_color }}">{{ item.data_type_name }}</view>
       <view class="text8">{{ item.product_name }}</view>
@@ -81,7 +81,7 @@
     </view>
     <view class="weui-tab__panel">
       <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-        <view wx:for="{{ product_list }}" wx:key class="navbar-item">
+        <view wx:for="{{ product_list }}" wx:key class="navbar-item" bindtap="{{ item.clickFunction }}">
           <view class="text11">{{ item.product_name }}</view>
           <view class="navbar-item-mainrow">
             <view class="navbar-item-row">

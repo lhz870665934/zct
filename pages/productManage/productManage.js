@@ -42,9 +42,9 @@ function initChart(canvas, width, height) {
           }
         },
         data: [
-          { value: 89.71, name: '股票' },
-          { value: 1.97, name: '债券' },
-          { value: 4.92, name: '银行存款' },
+          { value: 70.71, name: '股票' },
+          { value: 9.97, name: '债券' },
+          { value: 15.92, name: '银行存款' },
           { value: 3.4, name: '其他' }
         ]
       }

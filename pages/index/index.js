@@ -25,96 +25,10 @@ Page({
     accu_ration: "--",
     trading_num: 0,
 
-    recommend_list: [
-      {
-        data_type: 0,
-        product_name: "红棉定投",
-        earn: 2.90,
-        data_type_name: "",
-        text_color: "",
-      },
-      {
-        data_type: 1,
-        product_name: "万家智造混合",
-        earn: 30.09,
-        data_type_name: "",
-        text_color: "",
-      },
-      {
-        data_type: 0,
-        product_name: "宝盈先行策略",
-        earn: 2.39,
-        data_type_name: "",
-        text_color: "",
-      }
-    ],
-    hot_list: [
-      {
-        data_type: 0,
-        product_name: "中信建投",
-        earn: 2.40,
-        data_type_name: "",
-        text_color: "",
-      },
-      {
-        data_type: 1,
-        product_name: "易方达混合",
-        earn: 29.39,
-        data_type_name: "",
-        text_color: "",
-      },
-      {
-        data_type: 0,
-        product_name: "华安媒体混合",
-        earn: 2.34,
-        data_type_name: "",
-        text_color: "",
-      },
-    ],
-    product_list: [
-      {
-        product_name: "红棉定投",
-        earn: 2.90,
-        close_period: 0
-      },
-      {
-        product_name: "宝盈先行策略",
-        earn: 2.39,
-        close_period: 0
-      },
-      {
-        product_name: "中信建投",
-        earn: 2.40,
-        close_period: 0
-      },
-      {
-        product_name: "华安媒体混合",
-        earn: 2.34,
-        close_period: 0
-      },
-      {
-        product_name: "华泰宝兴混合",
-        earn: 2.43,
-        close_period: 0
-      },
-      {
-        product_name: "安信新回报",
-        earn: 2.36,
-        close_period: 0
-      },
-    ],
-    fund_list: [
-      {
-        product_name: "万家智造混合",
-        earn: 30.09,
-        close_period: 28
-      },
-      {
-        product_name: "易方达混合",
-        earn: 29.39,
-        close_period: 28
-      }
-    ],
+    recommend_list: [],
+    hot_list: [],
+    product_list: [],
+    fund_list: [],
   },
   //事件处理函数
   changeSee: function () {
@@ -149,19 +63,6 @@ Page({
     })
   },
 
-  // sendOpenid: function () {
-  //   wx.request({
-  //     url: 'http://10.1.253.12:8081/invest/test/login/' + app.globalData.openid,
-  //     method: 'GET',
-  //     success: res => {
-  //       console.log(res.data)
-  //     },
-  //     fail(res) {
-  //       console.log('fail!')
-  //     }
-  //   })
-  // },
-
   tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
@@ -170,20 +71,17 @@ Page({
   },
 
   toProductDetails: function (e) {
-    if (app.globalData.openid == null) {
-      wx.showToast({
-        title: "请稍后重试！",
-        icon: "loading",
-        mask: true
-      })
-      return
-    }
     wx.navigateTo({
       url: '../introduction/introduction',
     })
   },
 
   wechatLogin: function () {
+    wx.showLoading({
+      title: "加载数据中...",
+      mask: true
+    })
+
     var that = this;
     wx.login({
       success: res => {
@@ -193,6 +91,7 @@ Page({
           method: 'GET',
           success: res => {
             app.globalData.openid = res.data.openid
+            wx.hideLoading();
             wx.showToast({
               title: "数据获取成功！",
               mask: true
@@ -271,6 +170,14 @@ Page({
   },
 
   onLoad: function () {
+    var dataFile = require("data.js")
+    this.setData({
+      recommend_list: dataFile.recommend_list,
+      hot_list: dataFile.hot_list,
+      product_list: dataFile.product_list,
+      fund_list: dataFile.fund_list
+    })
+
     wx.getSetting({
       success: res => {
         console.log(res.authSetting)
@@ -306,6 +213,8 @@ Page({
     });
 
     //请求获取用户数据
+
+    console.log(this.data.recommend_list)
 
     //请求后做的事情
     for (var i = 0; i < this.data.recommend_list.length; i++) {
