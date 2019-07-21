@@ -180,9 +180,9 @@ Page({
               that.setData({
                 total_asset: res.data.data.userAsset.totalAsset,
                 latest_revenue: latest_revenue_string,
-                latest_ration: res.data.data.userAsset.latestRation,
+                latest_ration: res.data.data.userAsset.latestRation * 100,
                 accu_revenue: accu_revenue_string,
-                accu_ration: res.data.data.userAsset.accuRation,
+                accu_ration: res.data.data.userAsset.accuRation * 100,
               })
 
               app.globalData.total_asset = res.data.data.userAsset.totalAsset
