@@ -59,7 +59,7 @@
 </view>
 
 <view class="setting_title">
-  <view class="text4">资产成分</view>
+  <view class="text4">资产占比</view>
 </view>
 <view class="divLine"></view>
 <view class="pie-container">

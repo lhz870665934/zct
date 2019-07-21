@@ -304,6 +304,9 @@ Page({
 
   countpoints: function (options) {
     this.data.total_points = 0
+
+    var rank_string = "";
+
     for (var i = 0; i < 14; i++) {
       if (this.data.point[i] == null) {
         wx.showToast({
@@ -320,26 +323,33 @@ Page({
         var rank = -1;
         if (12 <= this.data.total_points && this.data.total_points <= 20) {
           rank = 5;
+          rank_string = "C5-进取型";
         }
         else if (21 <= this.data.total_points && this.data.total_points <= 29) {
           rank = 4;
+          rank_string = "C4-进取型";
         }
         else if (30 <= this.data.total_points && this.data.total_points <= 38) {
           rank = 3;
+          rank_string = "C3-进取型";
         }
         else if (39 <= this.data.total_points && this.data.total_points <= 48) {
           rank = 2;
+          rank_string = "C2-进取型";
         }
         else if (49 <= this.data.total_points && this.data.total_points <= 57) {
           if (this.data.point[12] != 1) {
             rank = 1;
+            rank_string = "C1-进取型";
           }
-          else rank = 0;
+          else {
+            rank = 0;
+            rank_string = "C0-进取型";
+          }
         }
 
         console.log(app.globalData)
-
-        console.log(rank)
+        console.log("t")
 
         wx.request({
           url: app.globalData.request_address + "/invest/login/",
@@ -356,17 +366,23 @@ Page({
           },
           success(res) {
             console.log(res.data)
-            if (app.globalData.examination_back == 0) {
-              wx.navigateTo({
-                url: '../purchase/purchase',
-              })
-            }
-            else {
-              wx.navigateBack({
-                
-              })
-            }
-            
+            wx.showModal({
+              title: "测试完成！",
+              content: "您的评级为: " + rank_string,
+              showCancel: false,
+              success (res) {
+                if (app.globalData.examination_back == 0) {
+                  wx.navigateTo({
+                    url: '../purchase/purchase',
+                  })
+                }
+                else {
+                  wx.navigateBack({
+
+                  })
+                }
+              }
+            })
           },
           fail(res) {
             console.log("fail!")
@@ -393,16 +409,6 @@ Page({
       ani: animation.export()
 
     })
-    // wx.pageScrollTo({
-    //   scrollTop: this.data.pos * wx.getSystemInfoSync().windowHeight,
-    // })
-    //this.animation.translate(0, wx.getSystemInfoSync().windowHeight).step()
-
-
-    // getCurrentPages().pop();
-    // wx.navigateTo({
-    //   url: './examination?id=' + (this.data.id + 1),
-    // })
   },
 
   back: function (e) {
@@ -420,9 +426,6 @@ Page({
       ani: animation.export()
 
     })
-    // wx.pageScrollTo({
-    //   scrollTop: this.data.pos * wx.getSystemInfoSync().windowHeight,
-    // })
   },
 
   donothing: function () {
@@ -434,9 +437,6 @@ Page({
    */
   onLoad: function (options) {
     this.data.total_points = 0
-    // this.setData({
-    //   id: parseInt(options.id)
-    // })
   },
 
   /**

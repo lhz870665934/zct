@@ -34,7 +34,7 @@
 
 <view class="fund_details_container">
   <view class="fund_details_name" bindtap="toProductManage">
-    <view class="text5">易方达上证50指数C产品名</view>
+    <view class="text5">红棉货币基金</view>
     <view>
       <image class="icon_arrow" src="../../img/icon_arrow.png"></image>
     </view>

@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <view class="myinfo-background">
-  <view class="myinfo">
+  <view class="myinfo" bindtap="toFund">
     <view class="subtitle1">
       <view class="text1">总资产（元）</view>
       <image class="icon1" src="{{ canSeePath }}" bindtap="changeSee"></image>

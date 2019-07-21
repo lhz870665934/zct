@@ -16,20 +16,29 @@ page{
   flex-direction: row;
   flex-wrap: nowrap;
   overflow: auto;
-  align-items: stretch;
+  /* align-items: stretch; */
+  align-items: center;
 }
 
 .question_each {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  width: 100%;
   flex: 0 0 100%;
+}
+
+.question_text {
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .radio_group {
   display: flex;
   flex-direction: column;
+  padding: 5%;
 }
 
 .back {

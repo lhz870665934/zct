@@ -1,6 +1,5 @@
 <!--pages/examination/examination.wxml-->
 <view class="page_container">
-
   <view class="question_container" catchtouchmove="nullThings">
     <view class="question_each" wx:for="{{ question_list }}" wx:key animation="{{ani}}">
       <view class="question_text">{{index + 1}}、{{item.question}}</view>
@@ -12,14 +11,6 @@
       </radio-group>
     </view>
   </view>
-  <button class="back" wx:if="{{ back_show }}"bindtap="back">返回上题</button>
+  <button class="back" type="warn" wx:if="{{ back_show }}"bindtap="back">返回上题</button>
   <button class="submit" type="primary" bindtap="countpoints">提交</button>
 </view>
-<!-- <view>
-  {{ id + 1 }}、{{ item.question[id] }}<br/>
-  <radio-group data-index="{{ id }}" bindchange="bindchange">
-    <view wx:for="{{ answer_list[id] }}" wx:key="{{ id }}">
-      <radio value="{{ index }}" checked="{{ item.checked }}">{{ item.name }}</radio>
-    </view>
-  </radio-group>
-</view> -->

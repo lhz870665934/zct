@@ -61,7 +61,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    product_name: "易达方上证50指数C（003333）",
+    product_name: "红棉货币基金",
     earning: 2.47,
     benefit: 0.6481,
     tabs: ["近7日", "近1个月", "近6个月", "近1年"],

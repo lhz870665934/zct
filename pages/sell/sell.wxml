@@ -12,7 +12,7 @@
   </view>
   <view class="amount-input">
     <view class="text3">￥</view>
-    <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue" value="{{ amount }}"></input>
+    <input class="input" placeholder="请填写您要卖出的金额" type="digit" bindinput="bindAmountValue" value="{{ amount }}"></input>
     <image class="icon_delete" src="../../img/icon_delete.png" bindtap="clear"></image>
     <view class="text_all" bindtap="setAll">全部</view>
   </view>

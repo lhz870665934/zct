@@ -21,11 +21,11 @@ page {
 }
 
 .button1 {
-  width: 50%;
+  width: 25%;
   color: black;
   background-color: white;
 }
 
 .button2 {
-  width: 50%;
+  width: 75%;
 }
