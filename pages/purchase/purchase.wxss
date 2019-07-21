@@ -52,6 +52,12 @@ page {
   color: #363636;
 }
 
+.text_warn {
+  font-size: 14px;
+  font-weight: Regular;
+  color: #EF3E44;
+}
+
 .input {
   margin-left: 2%;
 }

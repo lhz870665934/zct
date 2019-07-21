@@ -14,7 +14,7 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     product_name: "红棉货币基金",
-    amount: 0.0,
+    amount: "",
     bank_name: "广州银行",
     bank_id: 5334,
     max_amount: 10000,
@@ -27,18 +27,24 @@ Page({
 
     isAgree: false,
     confirm_disabled: true,
-    isEmpty: true
+    isEmpty: true,
+    tooLow: false,
   },
 
   tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
-      activeIndex: e.currentTarget.id
+      activeIndex: e.currentTarget.id,
+      isAgree: false,
+      confirm_disabled: true,
+      isEmpty: true,
+      tooLow: false,
+      amount: ""
     });
   },
 
   judgeConfiemDisabled: function () {
-    if (this.data.isEmpty == false && this.data.isAgree == true) {
+    if (this.data.isEmpty == false && this.data.isAgree == true && this.data.tooLow == false) {
       this.setData({
         confirm_disabled: false,
       });
@@ -63,6 +69,16 @@ Page({
       this.setData({
         isEmpty: false
       })
+      if (e.detail.value < 100) {
+        this.setData({
+          tooLow: true
+        })
+      }
+      else {
+        this.setData({
+          tooLow: false
+        })
+      }
     }
     this.judgeConfiemDisabled();
   },

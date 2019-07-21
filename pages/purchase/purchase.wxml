@@ -20,9 +20,10 @@
           </view>
           <view class="amount-input">
             <view class="text3">￥</view>
-            <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue"></input>
+            <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue" value="{{ amount }}"></input>
           </view>
           <view class="inputUnderline"></view>
+          <view wx:if="{{ tooLow }}" class="text_warn">输入金额低于100元</view>
           <view class="text4">预计第二日产生收益</view>
         </view>
         <view class="paymentStyle-container">
@@ -64,9 +65,10 @@
           </view>
           <view class="amount-input">
             <view class="text3">￥</view>
-            <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue"></input>
+            <input class="input" placeholder="最低定投金额100元" type="digit" bindinput="bindAmountValue" value="{{ amount }}"></input>
           </view>
           <view class="inputUnderline"></view>
+          <view wx:if="{{ tooLow }}" class="text_warn">输入金额低于100元</view>
           <view class="text4">预计第二日产生收益</view>
         </view>
         <view class="paymentStyle-container">
