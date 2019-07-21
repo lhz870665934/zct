@@ -13,7 +13,8 @@ Page({
     isOverflow: false,
     finalDate: "7月27日(三日后)23:59",
     today: "7月24日",
-    finalDay: "7月27日"
+    finalDay: "7月27日",
+    isTooLow: false,
   },
 
   bindAmountValue: function (e) {
@@ -22,11 +23,19 @@ Page({
     })
     if (this.data.amount > this.data.all_amount) {
       this.setData({
-        isOverflow: true
+        isOverflow: true,
+        isTooLow: false
+      })
+    }
+    else if (this.data.amount <= 0) {
+      this.setData({
+        isTooLow: true,
+        isOverflow: false
       })
     }
     else {
       this.setData({
+        isTooLow: false,
         isOverflow: false
       })
     }
@@ -34,14 +43,17 @@ Page({
 
   setAll: function () {
     this.setData({
-      amount: this.data.all_amount
+      amount: this.data.all_amount,
+      isTooLow: false,
+      isOverflow: false
     })
   },
 
   clear: function () {
     this.setData({
       amount: null,
-      isOverflow: false
+      isOverflow: false,
+      isTooLow: true
     })
   },
 

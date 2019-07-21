@@ -18,6 +18,7 @@
   </view>
   <view class="inputUnderline"></view>
   <view wx:if="{{ isOverflow }}" class="text4">输入金额超过零钱余额</view>
+  <view wx:elif="{{ isTooLow }}" class="text4">转出金额不能为0或更低</view>
 </view>
 
 <view class="style_title_container">
@@ -33,5 +34,5 @@
 </view>
 
 <view class="confirm_button_container">
-  <button class="confirm_button" type="warn" bindtap="confirm" disabled="{{ isOverflow || amount == mull }}">确认卖出</button>
+  <button class="confirm_button" type="warn" bindtap="confirm" disabled="{{ isOverflow || amount == mull || isTooLow }}">确认卖出</button>
 </view>
