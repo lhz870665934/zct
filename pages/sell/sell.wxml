@@ -34,5 +34,5 @@
 </view>
 
 <view class="confirm_button_container">
-  <button class="confirm_button" type="warn" bindtap="confirm" disabled="{{ isOverflow || amount == mull || isTooLow }}">确认卖出</button>
+  <button class="confirm_button" type="warn" bindtap="confirm" disabled="{{ isOverflow || amount == mull || isTooLow || unClick }}">确认卖出</button>
 </view>

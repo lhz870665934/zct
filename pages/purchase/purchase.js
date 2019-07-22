@@ -29,6 +29,7 @@ Page({
     confirm_disabled: true,
     isEmpty: true,
     tooLow: false,
+    unClick: false
   },
 
   tabClick: function (e) {
@@ -44,7 +45,7 @@ Page({
   },
 
   judgeConfiemDisabled: function () {
-    if (this.data.isEmpty == false && this.data.isAgree == true && this.data.tooLow == false) {
+    if (this.data.isEmpty == false && this.data.isAgree == true && this.data.tooLow == false && this.data.unClick == false) {
       this.setData({
         confirm_disabled: false,
       });
@@ -126,6 +127,11 @@ Page({
   },
 
   confirm: function (e) {
+    var that = this;
+    this.setData({
+      unClick: true
+    })
+    this.judgeConfiemDisabled()
     if (this.data.activeIndex == 0) {
       console.log(0)
       wx.request({
@@ -143,6 +149,10 @@ Page({
         },
         success(res) {
           console.log(res.data)
+          that.setData({
+            unClick: false
+          })
+          that.judgeConfiemDisabled()
           wx.showToast({
             title: "买入成功！",
             icon: "success"
@@ -185,6 +195,10 @@ Page({
         },
         success(res) {
           console.log(res.data)
+          that.setData({
+            unClick: false
+          })
+          that.judgeConfiemDisabled()
           wx.showToast({
             title: "定投成功！",
             icon: "success"

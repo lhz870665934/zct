@@ -147,16 +147,17 @@ page {
   flex-wrap: nowrap;
   overflow: auto;
   margin-bottom: 5%;
-  height: 105px;
+  height: 112px;
 }
 
 .recommend-button {
+  padding-left: 2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* width: 165px; */
   width: 43%;
-  height: 95px;
+  height: 108px;
   margin-left: 3%;
   background-color: #FFFFFF;
   border-radius: 8px;
@@ -165,40 +166,44 @@ page {
 }
 
 .text-box {
-  margin: 5%;
   display: flex;
   flex-direction: column;
 }
 
-.text7 {
-  margin: 2%;
-  font-size: 14px;
-}
-
-.text8 {
-  margin: 2%;
-  font-size: 16px;
-  font-weight: medium;
-  color: #363636;
-}
-
-.recommend-button-row {
-  margin: 2%;
+.text-box-container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
+.text7 {
+  font-size: 14px;
+  font-weight: Regular;
+}
+
+.text8 {
+  font-size: 11px;
+  font-weight: medium;
+  color: #787878;
+  margin-left: 7%;
+}
+
+.recommend-button-row {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
 .text9 {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: medium;
   color: #D0021B;
 }
 
 .text10 {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: medium;
-  color: #787878;
+  color: #D0021B;
 }
 
 .navbar {

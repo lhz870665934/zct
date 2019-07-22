@@ -12,5 +12,5 @@
     </view>
   </view>
   <button class="back" type="warn" wx:if="{{ back_show }}"bindtap="back">返回上题</button>
-  <button class="submit" type="primary" bindtap="countpoints">提交</button>
+  <button class="submit" type="primary" bindtap="countpoints" disabled="{{ unClick }}">提交</button>
 </view>

@@ -15,6 +15,7 @@ Page({
     today: "7月24日",
     finalDay: "7月27日",
     isTooLow: false,
+    unClick: false
   },
 
   bindAmountValue: function (e) {
@@ -58,12 +59,19 @@ Page({
   },
 
   confirm: function () {
+    var that = this;
+    this.setData({
+      unClick: true
+    })
     wx.request({
       url: app.globalData.request_address + "/invest/trade/sale/" + app.globalData.openid + "/1/" + this.data.amount,
       method: "POST",
       data: {},
       success(res) {
         console.log(res.data)
+        that.setData({
+          unClick: false
+        })
         wx.navigateTo({
           url: "../sellSuccess/sellSuccess",
         })

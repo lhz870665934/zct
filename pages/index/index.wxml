@@ -45,13 +45,13 @@
 <view class="recommend-function">
   <view class="recommend-button" wx:for="{{ recommend_list }}" wx:key bindtap="{{ item.clickFunction }}">
     <view class="text-box">
-      <view class="text7" style="color:{{ item.text_color }}">{{ item.data_type_name }}</view>
-      <view class="text8">{{ item.product_name }}</view>
-      <view class="recommend-button-row">
-        <view class="text9">{{ item.earn }}%</view>
-        <view wx:if="{{ item.data_type == 0 }}" class="text10">七日年化</view>
-        <view wx:else class="text10">近6月收益</view>
+      <view class="text-box-container">
+        <view class="text7" style="color:{{ item.text_color }}">{{ item.data_type_name }}</view>
+        <view class="text8">{{ item.product_name }}</view>
       </view>
+      <view class="text9">{{ item.earn }}%</view>
+      <view wx:if="{{ item.data_type == 0 }}" class="text10">七日年化</view>
+      <view wx:else class="text10">近6月收益</view>
     </view>
   </view>
 </view>
@@ -59,13 +59,13 @@
 <view class="recommend-function">
   <view class="recommend-button" wx:for="{{ hot_list }}" wx:key>
     <view class="text-box">
-      <view class="text7" style="color:{{ item.text_color }}">{{ item.data_type_name }}</view>
-      <view class="text8">{{ item.product_name }}</view>
-      <view class="recommend-button-row">
-        <view class="text9">{{ item.earn }}%</view>
-        <view wx:if="{{ item.data_type == 0 }}" class="text10">七日年化</view>
-        <view wx:else class="text10">近6月收益</view>
+      <view class="text-box-container">
+        <view class="text7" style="color:{{ item.text_color }}">{{ item.data_type_name }}</view>
+        <view class="text8">{{ item.product_name }}</view>
       </view>
+      <view class="text9">{{ item.earn }}%</view>
+      <view wx:if="{{ item.data_type == 0 }}" class="text10">七日年化</view>
+      <view wx:else class="text10">近6月收益</view>
     </view>
   </view>
 </view>

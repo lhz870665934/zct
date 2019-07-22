@@ -15,7 +15,8 @@ Page({
     id: 0,
     pos: 0,
     back_show: false,
-    ani: ""
+    ani: "",
+    unClick: false
   },
 
   nullThings: function () {
@@ -26,6 +27,7 @@ Page({
     this.data.total_points = 0
 
     var rank_string = "";
+    var that = this;
 
     for (var i = 0; i < 14; i++) {
       if (this.data.point[i] == null) {
@@ -68,8 +70,12 @@ Page({
           }
         }
 
-        console.log(app.globalData)
-        console.log("t")
+        // console.log(app.globalData)
+        // console.log("t")
+
+        this.setData({
+          unClick: true
+        })
 
         wx.request({
           url: app.globalData.request_address + "/invest/login/",
@@ -86,6 +92,9 @@ Page({
           },
           success(res) {
             console.log(res.data)
+            that.setData({
+              unClick: false
+            })
             wx.showModal({
               title: "测试完成！",
               content: "您的评级为: " + rank_string,
